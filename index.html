@@ -6,59 +6,74 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
 		h1 {
-			text-align: center;
-			font-family: Arial, sans-serif;
-		}
-		ul {
-      text-align: center;
-			list-style-type: none;
-			padding: 0;
-			margin: 0;
-		}
-    ol  {
-      text-align: center;
-    }
-    p {
-      text-align: center;
-    }
-		li {
-			margin-bottom: 10px;
+
 			font-family: Arial, sans-serif;
 		}
     body {
 			background-image: url(adobo-recipe.jpg);
 			background-size: cover;
 		}
-    .white-text {
-			color: #fff; /* This sets the font color to white */
+    .background-center-round{
+      margin-left: auto;
+			margin-right: auto;
+			width: 50%;
+			background-color: rgba(56, 54, 54, 0.5);
+			padding: 20px;
+			text-align: center;
+      border-radius: 20px;
+
+    }
+    .center-white-text {
+      color: #fff; /* This sets the font color to white */
+			padding: 20px;
+			text-align: center;
 		}
-    img {
-			opacity: 0.2;
+    .ingredients{
+      text-align: center;
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+		} 
+    .steps{
+      text-align: left;
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+		} 
+		li {
+			margin-bottom: 10px;
+			font-family: Arial, sans-serif;
 		}
+
 	</style>
 </head>
 <body>
-  <div  class="white-text">
-    <h1>Adobo Recipe</h1>
-    <ul>
-      <li>1 kg chicken, cut into serving pieces</li>
-      <li>1/2 cup vinegar</li>
-      <li>1/2 cup soy sauce</li>
-      <li>1 head garlic, minced</li>
-      <li>1 onion, chopped</li>
-      <li>1 tsp whole black peppercorns</li>
-      <li>3-4 bay leaves</li>
-      <li>1 cup water</li>
-      <li>2 tbsp cooking oil</li>
-    </ul>
-    <p>Instructions:</p>
-    <ul>
-      <li>Heat the oil in a pan and sauté the garlic and onion until fragrant.</li>
-      <li>Add the chicken and cook until lightly browned.</li>
-      <li>Add the vinegar, soy sauce, peppercorns, and bay leaves. Stir well.</li>
-      <li>Bring to a boil and then lower the heat. Cover and simmer for 30-45 minutes or until the chicken is cooked through and the sauce has thickened.</li>
-      <li>Serve hot with rice.</li>
-    </ul>
+  <h1 style="text-align: center; color: #fff;">Adobo Recipe</h1>
+  <div  class="background-center-round">
+    <div class="center-white-text">
+      <ul class="ingredients">
+        <h3>Ingredients</h3>
+        <li>1 kg chicken, cut into serving pieces</li>
+        <li>1/2 cup vinegar</li>
+        <li>1/2 cup soy sauce</li>
+        <li>1 head garlic, minced</li>
+        <li>1 onion, chopped</li>
+        <li>1 tsp whole black peppercorns</li>
+        <li>3-4 bay leaves</li>
+        <li>1 cup water</li>
+        <li>2 tbsp cooking oil</li>
+      </ul>
+      
+      <ul class="steps">
+        <h3>Instructions</h3>
+        <li>Step 1: Heat the oil in a pan and sauté the garlic and onion until fragrant.</li>
+        <li>Step 2: Add the chicken and cook until lightly browned.</li>
+        <li>Step 3: dd the vinegar, soy sauce, peppercorns, and bay leaves. Stir well.</li>
+        <li>Step 4: Bring to a boil and then lower the heat. Cover and simmer for 30-45 minutes or until the chicken is cooked through and the sauce has thickened.</li>
+        <li>Step 5: Serve hot with rice.</li>
+      </ul>
+    </div>
+    
   </div>
 
 </body>
