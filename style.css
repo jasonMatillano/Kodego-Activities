@@ -1,18 +1,31 @@
-.table {
-  display: table;
-  width: 100%;
+.login-form {
+  max-width: 300px;
+  margin: 0 auto;
 }
 
-.row {
-  display: table-row;
+.form-group {
+  margin-bottom: 10px;
 }
 
-.cell {
-  display: table-cell;
-  padding: 5px;
-  border: 1px solid black;
-}
-
-.header-cell {
+.form-group label {
+  display: block;
   font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
 }

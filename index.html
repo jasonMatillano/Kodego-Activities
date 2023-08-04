@@ -8,25 +8,18 @@
 </head>
 
 <body>
-    <div class="table">
-        <div class="row header-row">
-            <div class="cell header-cell">User ID</div>
-            <div class="cell header-cell">Name</div>
-            <div class="cell header-cell">Email</div>
-            <div class="cell header-cell">Age</div>
-        </div>
-        <div class="row">
-            <div class="cell">1</div>
-            <div class="cell">jason</div>
-            <div class="cell">jason@gmail.com</div>
-            <div class="cell">25</div>
-        </div>
-        <div class="row">
-            <div class="cell">2</div>
-            <div class="cell">Jane </div>
-            <div class="cell">jane@gmail.com</div>
-            <div class="cell">30</div>
-        </div>
+    <div class="login-form">
+        <form>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="submit-button">Log In</button>
+        </form>
     </div>
 </body>
 </html>
