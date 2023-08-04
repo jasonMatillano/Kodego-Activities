@@ -1,3 +1,7 @@
+body {
+    background-color: aqua;
+}
+
 table {
     border-collapse: collapse;
     width: 100%;
@@ -24,3 +28,19 @@ table {
    tr:hover {
     background-color: #ddd;
   }
+
+  .center-div {
+    width: 800px;
+    height: 300px;
+    background-color: rgb(191, 181, 181);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+
+    border: 3px solid black;
+    padding: 40px;
+}
+
+
