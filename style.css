@@ -29,3 +29,19 @@
   border-radius: 3px;
   cursor: pointer;
 }
+
+body {
+  background-color: rgb(145, 147, 194);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.login-form {
+  max-width: 300px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
