@@ -14,17 +14,18 @@
 }
 
 html {
-  font-family: "Lucida Sans", sans-serif;
+  font-family: "Console", sans-serif;
 }
 
 .header {
-  background-color: #9933cc;
+  text-align: center;
+  background-color: #cc3340;
   color: #ffffff;
   padding: 15px;
 }
 
 .menu ul {
-  list-style-type: none;
+  list-style-type: sq;
   margin: 0;
   padding: 0;
 }
@@ -38,20 +39,20 @@ html {
 }
 
 .menu li:hover {
-  background-color: #0099cc;
+  background-color: #bb00cc;
 }
 
 .aside {
-  background-color: #33b5e5;
+  background-color: #e58933;
   padding: 15px;
-  color: #ffffff;
+  color: #100f0f;
   text-align: center;
   font-size: 14px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 .footer {
-  background-color: #0099cc;
+  background-color: #083c4d;
   color: #ffffff;
   text-align: center;
   font-size: 12px;
