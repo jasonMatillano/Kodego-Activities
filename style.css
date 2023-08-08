@@ -7,17 +7,45 @@
 .grid-container {
     display: grid;
     grid-template-areas:
-    'header header header header header header'
-    'menu main main main right right'
-    'footer footer footer footer footer footer';
+    'header header main menu'
+    'header header main menu'
+    'header header main right'
+    'header header main right'
+    'footer footer footer footer';
     gap: 10px;
     background-color: #2196F3;
     padding: 10px;
 }
 
 .grid-container > div {
-    background-color: rgba(255, 255, 255, 0.8);
+    /* background-color: rgba(255, 255, 255, 0.8); */
     text-align: center;
     padding: 20px 0;
     font-size: 30px;
+}
+
+.header {
+  background-color: rgb(209, 58, 58);
+  height: 450px;
+}
+
+.main {
+  background-color: rgb(0, 191, 255);
+  height: 450px;
+}
+
+.footer {
+  background-color: rgb(217, 255, 0);
+  height: 100px;
+}
+
+.menu {
+  background-color: rgb(97, 24, 95);
+  height: 200px;
+}
+
+
+.right {
+  background-color: rgb(39, 180, 60);
+  height: 200px;
 }
