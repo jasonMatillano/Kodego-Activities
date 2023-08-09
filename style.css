@@ -4,89 +4,105 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-color: #45a049;
 }
 
 /* Arranged grid arrangement: header board reset*/
 .grid-container {
   display: grid;
   grid-template-areas:
-  'header header header'
-  'baord baord baord '
-  'reset reset reset ';
+  'container con-form '
+  'container con-form  '
+  'container con-form  ';
   gap: 10px;
   background-color: #ffffff;
   padding: 10px;
+  border-radius: 20px;
 }
 
-/* assign grid areas */
-.header { grid-area: header; }
-.board { grid-area: baord; }
-.reset { grid-area: reset; }
+/* company info area*/
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
-/* define header properties */
-.header {
-  background-color: rgb(209, 58, 58);
+.container h2 {
   text-align: center;
-  color: #ffffff;
-  border-radius: 10px;
 }
 
-/* define board properties */
-.board {
-  background-color: rgb(255, 255, 255);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 5px;
-  width: 300px;
+.company-description {
+  margin-bottom: 20px;
+}
+
+.company-description p {
   margin-bottom: 10px;
 }
 
-/* define borad cell properties */
-.board .cell {
-  background-color: #2196F3;  
-  border: 1px solid #999;
+.contact-info {
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  margin-bottom: 5px;
+}
+
+.address {
+  margin-bottom: 20px;
+}
+
+.address p {
+  margin-bottom: 5px;
+}
+
+/* contact form details area */
+.con-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 36px;
-  cursor: pointer;
 }
 
-.board .cell:hover {
-  background-color: #7fc2e3;
-}
-
-.board .cell:active {
-  background-color: #517789;
-}
-
-/* define reset properties */
-.reset {
+.con-form h2 {
   text-align: center;
 }
 
-.reset button {
-  font-size: 18px;
-  padding: 10px 20px;
-  cursor: pointer;
-  background-color: #4CAF50;
-  color: rgb(255, 255, 255);
-  border: none;
+.con-form input[type="text"],
+.con-form input[type="email"],
+.con-form textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
   border-radius: 4px;
+  resize: vertical;
 }
 
-.reset button:hover {
+.con-form textarea {
+  height: 150px;
+}
+
+.con-form input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+.con-form input[type="submit"]:hover {
   background-color: #45a049;
 }
 
-.reset button:active {
-  background-color: #3e8e41;
+.con-form::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
-.reset button {
-  font-size: 18px;
-  padding: 10px 20px;
-  cursor: pointer;
-}
