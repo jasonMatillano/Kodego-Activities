@@ -11,17 +11,17 @@ body {
 .grid-container {
   display: grid;
   grid-template-areas:
-  'container con-form '
-  'container con-form  '
-  'container con-form  ';
+  'info form '
+  'info form  '
+  'info form  ';
   gap: 10px;
-  background-color: #ffffff;
+  background-color: #45a049;
   padding: 10px;
   border-radius: 20px;
 }
 
 /* company info area*/
-.container {
+.info {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
@@ -29,7 +29,7 @@ body {
   border-radius: 5px;
 }
 
-.container h2 {
+.info h2 {
   text-align: center;
 }
 
@@ -58,7 +58,7 @@ body {
 }
 
 /* contact form details area */
-.con-form {
+.form {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
@@ -66,13 +66,13 @@ body {
   border-radius: 5px;
 }
 
-.con-form h2 {
+.form h2 {
   text-align: center;
 }
 
-.con-form input[type="text"],
-.con-form input[type="email"],
-.con-form textarea {
+.form input[type="text"],
+.form input[type="email"],
+.form textarea {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -82,11 +82,11 @@ body {
   resize: vertical;
 }
 
-.con-form textarea {
+.form textarea {
   height: 150px;
 }
 
-.con-form input[type="submit"] {
+.form input[type="submit"] {
   background-color: #4CAF50;
   color: white;
   padding: 12px 20px;
@@ -96,13 +96,52 @@ body {
   float: right;
 }
 
-.con-form input[type="submit"]:hover {
+.form input[type="submit"]:hover {
   background-color: #45a049;
 }
 
-.con-form::after {
+.form::after {
   content: "";
   clear: both;
   display: table;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+
+/* 3D effect */
+.info,
+.form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transform: perspective(800px) rotateY(30deg);
+  transform-origin: left;
+}
+
+.info {
+  transform: perspective(800px) rotateY(-30deg);
+  transform-origin: right;
+}
+
+.container,
+.form form {
+  transform: perspective(800px) rotateY(-30deg);
+}
+
+.container {
+  margin-top: 50px;
+}
+
+.form {
+  margin-bottom: 50px;
+}
+
+h2 {
+  text-align: center;
+}
