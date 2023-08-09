@@ -1,50 +1,85 @@
 .item1 { grid-area: header; }
-.item2 { grid-area: menu; }
+.item2 { grid-area: baord; }
 .item3 { grid-area: main; }
 .item4 { grid-area: right; }
 .item5 { grid-area: footer; }
 
+.item1 {
+  background-color: rgb(209, 58, 58);
+  text-align: center;
+  color: #ffffff;
+  border-radius: 10px;
+}
+
+.item2 {
+  background-color: rgb(255, 255, 255);
+}
+.item2 .cell {
+  background-color: #2196F3;
+}
+
+.item5 {
+  text-align: center;
+}
+
+.item5 button {
+  font-size: 18px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 4px;
+}
+
+.item5 button:hover {
+  background-color: #45a049;
+}
+
+.item5 button:active {
+  background-color: #3e8e41;
+}
+
 .grid-container {
     display: grid;
     grid-template-areas:
-    'header header main menu'
-    'header header main menu'
-    'header header main right'
-    'header header main right'
-    'footer footer footer footer';
+    'header header  header'
+    'baord baord baord '
+    'footer footer footer ';
     gap: 10px;
-    background-color: #2196F3;
+    background-color: #ffffff;
     padding: 10px;
 }
 
-.grid-container > div {
-    /* background-color: rgba(255, 255, 255, 0.8); */
-    text-align: center;
-    padding: 20px 0;
-    font-size: 30px;
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+  width: 300px;
+  margin-bottom: 10px;
 }
 
-.header {
-  background-color: rgb(209, 58, 58);
-  height: 450px;
-}
-
-.main {
-  background-color: rgb(0, 191, 255);
-  height: 450px;
-}
-
-.footer {
-  background-color: rgb(217, 255, 0);
+.cell {
+  /* background-color: #eee; */
+  border: 1px solid #999;
+  border-radius: 5px;
   height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  cursor: pointer;
 }
 
-.menu {
-  background-color: rgb(97, 24, 95);
-  height: 200px;
+button {
+  font-size: 18px;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
-.right {
-  background-color: rgb(39, 180, 60);
-  height: 200px;
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
