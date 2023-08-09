@@ -84,3 +84,12 @@ body {
   cursor: pointer;
 }
 
+/* Existing CSS code */
+
+.selected {
+  background-color: #ccc;
+}
+
+.win {
+  background-color: #ff0;
+}
