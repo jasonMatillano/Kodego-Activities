@@ -10,7 +10,7 @@ body {
 .grid-container {
   display: grid;
   grid-template-areas:
-  'header header  header'
+  'header header header'
   'baord baord baord '
   'reset reset reset ';
   gap: 10px;
@@ -54,6 +54,13 @@ body {
   cursor: pointer;
 }
 
+.board .cell:hover {
+  background-color: #7fc2e3;
+}
+
+.board .cell:active {
+  background-color: #517789;
+}
 
 /* define reset properties */
 .reset {
