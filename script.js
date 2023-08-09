@@ -5,14 +5,15 @@ function makeMove(cellIndex) {
   if (board[cellIndex] === "") {
     board[cellIndex] = currentPlayer;
     document.getElementsByClassName("cell")[cellIndex].innerText = currentPlayer;
+
+    currentPlayer = currentPlayer === "X" ? "O" : "X"; // Switch the current player
+
     if (checkWin(currentPlayer)) {
       alert(currentPlayer + " wins!");
       resetBoard();
     } else if (board.filter(cell => cell === "").length === 0) {
       alert("It's a draw!");
       resetBoard();
-    } else {
-      currentPlayer = currentPlayer === "X" ? "O" : "X";
     }
   }
 }
