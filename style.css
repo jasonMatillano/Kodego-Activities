@@ -1,10 +1,29 @@
-.item1 { grid-area: header; }
-.item2 { grid-area: baord; }
-.item3 { grid-area: main; }
-.item4 { grid-area: right; }
-.item5 { grid-area: footer; }
+/* display all elements in center */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
 
-.item1 {
+
+/* Arranged grid header board reset*/
+.grid-container {
+  display: grid;
+  grid-template-areas:
+  'header header  header'
+  'baord baord baord '
+  'reset reset reset ';
+  gap: 10px;
+  background-color: #ffffff;
+  padding: 10px;
+}
+
+.header { grid-area: header; }
+.item2 { grid-area: baord; }
+.item3 { grid-area: reset; }
+
+.header {
   background-color: rgb(209, 58, 58);
   text-align: center;
   color: #ffffff;
@@ -18,11 +37,11 @@
   background-color: #2196F3;
 }
 
-.item5 {
+.item3 {
   text-align: center;
 }
 
-.item5 button {
+.item3 button {
   font-size: 18px;
   padding: 10px 20px;
   cursor: pointer;
@@ -32,24 +51,15 @@
   border-radius: 4px;
 }
 
-.item5 button:hover {
+.item3 button:hover {
   background-color: #45a049;
 }
 
-.item5 button:active {
+.item3 button:active {
   background-color: #3e8e41;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-areas:
-    'header header  header'
-    'baord baord baord '
-    'footer footer footer ';
-    gap: 10px;
-    background-color: #ffffff;
-    padding: 10px;
-}
+
 
 #board {
   display: grid;
@@ -77,9 +87,3 @@ button {
   cursor: pointer;
 }
 
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
