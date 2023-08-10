@@ -1,108 +1,24 @@
-/* display all elements in center */
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #45a049;
-}
-
-/* Arranged grid arrangement: header board reset*/
-.grid-container {
-  display: grid;
-  grid-template-areas:
-  'container con-form '
-  'container con-form  '
-  'container con-form  ';
-  gap: 10px;
-  background-color: #ffffff;
-  padding: 10px;
-  border-radius: 20px;
-}
-
-/* company info area*/
-.container {
-  max-width: 600px;
-  margin: 0 auto;
+.layer1 {
+  background-color: red;
+  border: 2px solid black;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
 }
 
-.container h2 {
-  text-align: center;
-}
-
-.company-description {
-  margin-bottom: 20px;
-}
-
-.company-description p {
-  margin-bottom: 10px;
-}
-
-.contact-info {
-  margin-bottom: 20px;
-}
-
-.contact-info p {
-  margin-bottom: 5px;
-}
-
-.address {
-  margin-bottom: 20px;
-}
-
-.address p {
-  margin-bottom: 5px;
-}
-
-/* contact form details area */
-.con-form {
-  max-width: 400px;
-  margin: 0 auto;
+.layer2{
+  background-color: green;
+  border: 2px solid black;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
 }
 
-.con-form h2 {
-  text-align: center;
+.layer3 {
+  background-color: yellow;
+  border: 2px solid black;
+  padding: 20px;
 }
 
-.con-form input[type="text"],
-.con-form input[type="email"],
-.con-form textarea {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
+.layer4 {
+  background-color: rgb(141, 232, 229);
+  border: 2px solid black;
+  padding: 20px;
+  s[]
 }
-
-.con-form textarea {
-  height: 150px;
-}
-
-.con-form input[type="submit"] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: right;
-}
-
-.con-form input[type="submit"]:hover {
-  background-color: #45a049;
-}
-
-.con-form::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
