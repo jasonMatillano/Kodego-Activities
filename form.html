@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ramenicious - Order Ramen Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    div.background {
+        background-image: url('./assets/background-image.jpg');
+              /* Add the blur effect */
+              filter: blur(8px);
+        -webkit-filter: blur(8px);
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+      background-color: rgba(221, 185, 119, 0.8);
+
+
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+
+    .form-group button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .form-group button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+ <div class="background">
+    <div class="container">
+        <h2>Order Ramen</h2>
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="contact-number">Contact Number</label>
+            <input type="tel" id="contact-number" name="contact-number" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="ramen-type">Ramen Type</label>
+            <select id="ramen-type" name="ramen-type" required>
+              <option value="">Select Ramen Type</option>
+              <option value="tonkotsu">Tonkotsu Ramen</option>
+              <option value="shoyu">Shoyu Ramen</option>
+              <option value="miso">Miso Ramen</option>
+              <option value="shio">Shio Ramen</option>
+            </select>
+          </div>
+    
+          <div class="form-group">
+            <label for="additional-requests">Additional Requests</label>
+            <textarea id="additional-requests" name="additional-requests" rows="4"></textarea>
+          </div>
+    
+          <div class="form-group">
+            <button type="submit">Submit Order</button>
+          </div>
+        </form>
+      </div>
+ </div>
+ 
+</body>
+</html>
