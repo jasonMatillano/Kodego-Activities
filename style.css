@@ -71,6 +71,14 @@ body, html {
 .specials { grid-area: specials; }
 .ramen { grid-area: ramen; }
 
+.ramen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 50;
+
+}
+
 
 .restaurant-name {
   font-size: 28px;
@@ -98,13 +106,13 @@ body, html {
 }
 
 .special-icon {
-  width: 30px;
+  width: 6cap;
   height: 30px;
   margin-right: 10px;
 }
 
 .special-text {
-  font-size: 16px;
+  font-size: 30px;
   color: #151515;
 }
 
@@ -133,8 +141,8 @@ body, html {
 }
 
 .footer .descrition {
-  text-align:  center; 
-  font-size: 18px; 
+  text-align:  left; 
+  font-size: 20px; 
   margin-bottom: 20px;
 }
 
