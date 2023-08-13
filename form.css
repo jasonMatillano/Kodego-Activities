@@ -4,10 +4,6 @@ body, html {
     margin: 0;
 }
 
-* {
-box-sizing: border-box;
-}
-
 .backgound {
     background-image: url('assets/background.png');
 
@@ -25,13 +21,8 @@ box-sizing: border-box;
 }
 
 .container {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: rgba(241, 197, 122, 0.8);
+  max-width: 700px;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(8px);
   background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
   color: white;
   font-weight: bold;

@@ -1,53 +1,76 @@
 body, html {
   font-family: Arial, sans-serif;
   height: 100%;
-  margin: 0;
+  margin: 0px auto;
+  padding: auto;
 }
 
 .backgound {
-background-image: url('assets/background-image.jpg');
+  background-image: url('assets/background.png');
+  
+  /* Add the blur effect */
+  /* filter: blur(8px);
+  -webkit-filter: blur(8px); */
+  
+  /* Full height */
+  height: 100%; 
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  }
 
-/* Add the blur effect */
-filter: blur(8px);
--webkit-filter: blur(8px);
-
-/* Full height */
-height: 100%; 
-
-/* Center and scale the image nicely */
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
+.header {
+  background-color: rgba(255, 255, 255);
+  padding: 20px;
+  position: absolute;
+  text-align: center;
+  top: 0%;
+  left: 0%;
+  border-radius: 5px;
+  width: 100%;
+  font-size: large;
 }
+
 
 
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: rgba(241, 197, 122, 0.8);
+  max-width: 1200px;
+  height: 600px;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(8px);
-  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-  color: white;
-  font-weight: bold;
+  
+  /* Black w/opacity/see-through */
+  background-color: rgba(255, 255, 255, 0.4); 
+  font-weight: regular;
   border: 3px solid #f1f1f1;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2;
-  width: 80%;
-  padding: 20px;
+  width: 100%;
+  padding: 00px 00px 00px 00px;
   text-align: center;
+  overflow: auto;
 }
 
-.header {
-  background-color: #f5f5f5;
-  padding: 20px;
-  text-align: center;
+.grid-container {
+  display: grid;
+  grid-template-areas:
+  'ramen ramen specials specials'
+  'ramen ramen specials specials'
+  'footer footer footer footer';
+  gap: 0px;
+  /* background-color: #2196F3; */
+  padding: 0px;
 }
+
+.footer { grid-area: footer; }
+.specials { grid-area: specials; }
+.ramen { grid-area: ramen; }
+
 
 .restaurant-name {
   font-size: 28px;
@@ -65,7 +88,7 @@ background-size: cover;
 
 .specials {
   padding: 20px;
-  background-color: #eee;
+  /* background-color: #eee; */
 }
 
 .special-item {
@@ -82,7 +105,7 @@ background-size: cover;
 
 .special-text {
   font-size: 16px;
-  color: #333;
+  color: #151515;
 }
 
 .cta-button {
@@ -104,18 +127,17 @@ background-size: cover;
   background-color: #0056b3;
 }
 
-
-.specials { grid-area: specials; }
-.ramen { grid-area: ramen; }
-
-.grid-container {
-  display: grid;
-  grid-template-areas:
-  'ramen ramen specials specials'
-  'ramen ramen specials specials';
-  gap: 0px;
-  background-color: #2196F3;
-  padding: 0px;
+.footer {
+  padding: 20px;
+  text-align: left;
 }
+
+.footer .descrition {
+  text-align:  center; 
+  font-size: 18px; 
+  margin-bottom: 20px;
+}
+
+
 
 
