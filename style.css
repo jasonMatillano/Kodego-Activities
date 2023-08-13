@@ -5,48 +5,41 @@ body, html {
   padding: auto;
 }
 
-.backgound {
-  background-image: url('assets/background.png');
-  
-  /* Add the blur effect */
-  /* filter: blur(8px);
-  -webkit-filter: blur(8px); */
-  
-  /* Full height */
-  height: 100%; 
-  
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  
-  }
-
 .header {
-  background-color: rgb(67, 67, 67);
-  padding: 20px;
+  background-color: rgb(67, 67, 67,.95);
   position: absolute;
   text-align: center;
-  top: 0%;
-  left: 0%;
-  border-radius: 5px;
   width: 100%;
   font-size: large;
 }
 
+.header .cta-button {
+  width: auto;
+  position: absolute;
+  top: 35%;
+  right: 20%;
+}
+
+
+.backgound {
+  background-image: url('assets/background.png');
+  height: 100%;
+}
+
+
 .restaurant-name {
-  font-size: 28px;
+  font-size: 40px;
   font-weight: bold;
   color: #ffffff;
   margin-bottom: 10px;
 }
 
-
 .slogan {
-  font-size: 18px;
+  font-size: 28px;
   color: #ffffff;
   margin-bottom: 20px;
 }
+
 
 .container {
   max-width: 1200px;
@@ -55,7 +48,7 @@ body, html {
   backdrop-filter: blur(8px);
   
   /* Black w/opacity/see-through */
-  background-color: rgba(255, 255, 255, 0.4); 
+  background-color: rgba(255, 255, 255, 0.8); 
   border: 3px solid #f1f1f1;
   position: absolute;
   top: 60%;
@@ -77,8 +70,8 @@ body, html {
   padding: 20px;
 }
 
-.footer { grid-area: footer; }
-.specials { grid-area: specials; }
+/* ==========================ramen============================================ */
+
 .ramen { grid-area: ramen; }
 
 .ramen img{
@@ -92,27 +85,54 @@ body, html {
   box-shadow: 10px 10px 5px rgb(44, 44, 44);
 }
 
-.special-icon {
-  width: 50px;
-  height: 70px;
-  margin-right: 10px;
-}
 
+/* ==========================specials============================================ */
+
+.specials { grid-area: specials; }
 
 .specials {
   padding: 20px;
-  align-content: space-around;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .special-item {
-  align-items: center;
+  display: flex;
+  justify-content: left;
   margin-bottom: 10px;
 }
 
+.special-icon {
+  width: 50px;
+  height: 60px;
+  margin-right: 10px;
+}
 
 .special-text {
-  font-size: 10px;
+  font-size: 30px;
   color: #151515;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+/* ==========================Footer============================================ */
+
+.footer { grid-area: footer; }
+
+.footer {
+  text-align: left;
+}
+
+.footer .descrition {
+  text-align:  center; 
+  /* text-indent: 50px; */
+  font-size: 20px;
+  padding: 0px;
 }
 
 .cta-button {
@@ -132,16 +152,6 @@ body, html {
 
 .cta-button:hover {
   background-color: #0056b3;
-}
-
-.footer {
-  text-align: left;
-}
-
-.footer .descrition {
-  text-align:  left; 
-  font-size: 20px;
-  padding: 0px;
 }
 
 
