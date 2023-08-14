@@ -9,7 +9,9 @@ body, html {
   background-color: rgb(67, 67, 67,.95);
   text-align: center;
   font-size: large;
-  height: 250px;
+  height: 30%;
+  border: 1px solid black;
+  padding: 10px;
 }
 
 .col-md-4.button {
@@ -102,12 +104,11 @@ body, html {
 }
 
 .footer {
-  text-align: left;
+  text-align: justify;
 }
 
 .footer .descrition {
-  text-align:  center; 
-  /* text-indent: 50px; */
+  text-indent: 40px;
   font-size: 20px;
   padding: 0px;
 }
