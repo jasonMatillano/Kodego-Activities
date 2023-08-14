@@ -7,23 +7,26 @@ body, html {
 
 .header {
   background-color: rgb(67, 67, 67,.95);
-  position: absolute;
   text-align: center;
-  width: 100%;
   font-size: large;
+  height: 250px;
 }
 
-.header .cta-button {
-  width: auto;
-  position: absolute;
-  top: 35%;
-  right: 20%;
+.col-md-4.button {
+  width: auto ;
+  justify-content: center;
+  position: relative;
+  top: 120px;
 }
 
 
 .backgound {
   background-image: url('assets/background.png');
   height: 100%;
+
+  /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
 }
 
 
@@ -51,28 +54,14 @@ body, html {
   background-color: rgba(255, 255, 255, 0.8); 
   border: 3px solid #f1f1f1;
   position: absolute;
-  top: 60%;
+  top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  padding: 00px 00px 00px 00px;
+  padding: 10px;
   overflow: auto;
   
 }
-
-.grid-container {
-  display: grid;
-  grid-template-areas:
-  'ramen ramen specials specials'
-  'ramen ramen specials specials'
-  'footer footer footer footer';
-  gap: 0px;
-  padding: 20px;
-}
-
-/* ==========================ramen============================================ */
-
-.ramen { grid-area: ramen; }
 
 .ramen img{
   padding: 0px;
@@ -84,11 +73,6 @@ body, html {
   border-radius: 5px;
   box-shadow: 10px 10px 5px rgb(44, 44, 44);
 }
-
-
-/* ==========================specials============================================ */
-
-.specials { grid-area: specials; }
 
 .specials {
   padding: 20px;
@@ -116,13 +100,6 @@ body, html {
   justify-content: center;
   align-items: center;
 }
-
-
-
-
-/* ==========================Footer============================================ */
-
-.footer { grid-area: footer; }
 
 .footer {
   text-align: left;
