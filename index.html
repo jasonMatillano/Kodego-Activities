@@ -1,71 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ramenicious - Authentic Ramen</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="./bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="style.css">
-  <style>
-   
-  </style>
+    <title>DOM Manipulation Demo with Functions</title>
 </head>
 <body>
-  <div class="row header">
-    <div class="col-md-4">
-
+    <h1>DOM Manipulation Demo with Functions</h1>
+    
+    <div id="container">
+        <p>This is a paragraph.</p>
+        <button onclick="addParagraph()" type="button" id="addButton">Add Element</button>
+        <button onclick="modifyText()" type="button" id="modifyButton">Modify Text</button>
+        <button onclick="deleteParagraph()" id="deleteButton">Delete Element</button>
     </div>
-    <div class="col-md-4 sticky-top">    
-      <h1 class="restaurant-name">Ramenicious - Authentic Ramen</h1>
-      <p class="slogan">Indulge in the rich flavors of authentic Japanese ramen!</p>
-    </div>
-    <div class="col-md-4 button">
-      <a class="cta-button" href="form.html">Order Now</a>
-    </div>
-  </div>
-  <div class="row backgound">
-  </div>
-  <div class="row container">
-      <div class="col-md-6 ramen">
-        <img 
-          src="./assets/ramen1.jpg" 
-          alt="Ramen Image" 
-          >
-      </div>
-      <div class="col-md-6 specials">
-        <div class="special-item">
-          <img class="special-icon" src="./assets/icon1.png" alt="Special Icon">
-          <span class="special-text">Wide variety of ramen flavors to choose from</span>
-        </div>
-        <div class="special-item">
-          <img class="special-icon" src="./assets/icon2.png" alt="Special Icon">
-          <span class="special-text">Fresh ingredients sourced from local markets</span>
-        </div>
-        <div class="special-item">
-          <img class="special-icon" src="./assets/icon3.png" alt="Special Icon">
-          <span class="special-text">Handcrafted noodles made in-house daily</span>
-        </div>
-        <div class="special-item">
-          <img class="special-icon" src="./assets/icon4.png" alt="Special Icon">
-          <span class="special-text">Vegetarian and vegan options available</span>
-        </div>
-      </div>
 
-      <div class="col-md-6 footer">
-        <p class="descrition">
-          Experience the authentic flavors of Japan with our delicious ramen bowls. 
-          Made with love and passion.</p>
-        <p class="descrition">First and foremost, our broth is the heart and soul of our ramen. Simmered for hours using a secret blend of aromatic ingredients, our broths are rich, complex, and bursting with umami goodness. Whether you prefer a velvety tonkotsu broth, a savory miso base, or a delicate shoyu infusion, we have a variety of options to suit your taste.</p>
-        <p class="descrition">The noodles in our ramen are a work of art. Made fresh in-house using traditional techniques, they have the ideal texture and elasticity that perfectly complement the broth. Each bite is a delightful balance of chewiness and tenderness, ensuring a satisfying and authentic ramen experience.</p>
-        <p class="descrition">But we don't stop there. Our toppings are thoughtfully chosen to enhance the flavors and create a harmonious blend of textures. From succulent slices of tender chashu pork and perfectly marinated soft-boiled eggs to crunchy bamboo shoots, fresh scallions, and seaweed, every ingredient is carefully selected to elevate your ramen to new heights.</p>
-      </div>
-      <div class="col-md-6 footer">
-        <p class="descrition">We understand that dietary preferences and restrictions vary, which is why we offer a range of options to accommodate everyone. Vegetarian or vegan? No problem. Our vegetable-based broths and plant-based protein options will satisfy your cravings without compromising on taste.</p>
-        <p class="descrition">At our restaurant, we believe that the dining experience is about more than just food. It's about creating memorable moments and fostering a sense of community. Our warm and inviting atmosphere welcomes families, friends, and individuals alike, ensuring that everyone feels at home while enjoying their ramen.</p>
-        <p class="descrition">So come and experience the pinnacle of ramen perfection at our restaurant. Indulge in the depths of flavor, savor the artistry in every bowl, and discover why our ramen is unrivaled. We can't wait to serve you a bowl of pure culinary bliss.</p>
-        <a class="cta-button" href="form.html">Order Now</a>
-      </div>
-  </div>
-
+    <!-- Include the JavaScript file -->
+    <script src="./login.js"></script>
 </body>
 </html>
