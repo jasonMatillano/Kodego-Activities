@@ -1,3 +1,18 @@
+var divElement = document.createElement('div');
+var buttonElement = document.createElement('button');
+
+divElement.id = 'tester-id';
+buttonElement.id = 'div-id';
+buttonElement.className = 'div-class';
+
+divElement.appendChild(buttonElement); 
+// gawa na yung unang container at yung button sa loob
+
+var parElement = document.createElement('p'); parElement.innerText = 'Im a paragraph';
+
+buttonElement.appendChild(parElement);
+// gawa na dito yung main objective;
+
 function showLoginForm() {
     const container = document.getElementById("container");
     container.innerHTML = `
