@@ -13,6 +13,8 @@ var parElement = document.createElement('p'); parElement.innerText = 'Im a parag
 buttonElement.appendChild(parElement);
 // gawa na dito yung main objective;
 
+document.body.appendChild(divElement);
+
 function showLoginForm() {
     const container = document.getElementById("container");
     container.innerHTML = `
