@@ -1,22 +1,14 @@
-var divElement = document.createElement('div');
-var buttonElement = document.createElement('button');
+var divElement1 = document.createElement('div');
+var divElement2 = document.createElement('div');
 
-divElement.id = 'tester-id';
-buttonElement.id = 'div-id';
-buttonElement.className = 'div-class';
+divElement1.id = 'container1';
+divElement2.id = 'container2';
 
-divElement.appendChild(buttonElement); 
-// gawa na yung unang container at yung button sa loob
-
-var parElement = document.createElement('p'); parElement.innerText = 'Im a paragraph';
-
-buttonElement.appendChild(parElement);
-// gawa na dito yung main objective;
-
-document.body.appendChild(divElement);
+document.body.appendChild(divElement1);
+document.body.appendChild(divElement2);
 
 function showLoginForm() {
-    const container = document.getElementById("container");
+    const container = document.getElementById("container1");
     container.innerHTML = `
         <h2>Login</h2>
         <form id="loginForm">
@@ -82,5 +74,6 @@ function showRegistrationForm() {
 }
 
 // Initially, show the forms
-showRegistrationForm();
 showLoginForm();
+showRegistrationForm();
+
