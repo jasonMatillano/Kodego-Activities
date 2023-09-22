@@ -31,6 +31,7 @@ function addTask() {
     }
 }
 
+
 // Add a click event listener to the "Add Task" button
 addTaskButton.addEventListener("click", addTask);
 
