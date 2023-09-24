@@ -80,24 +80,30 @@ addToCartButtons.forEach(button => {
 });
 
 
-// Function to display cart details in an alert
-function showCartDetails() {
-    let cartDetails = "Shopping Cart:\n\n";
+// Function to display the cart details in an alert
+function checkout() {
+    let cartDetails = "Shopping Cart:\n";
     cart.forEach(item => {
         cartDetails += `${item.name} - $${item.price.toFixed(2)} x ${item.quantity}\n`;
     });
     
-    const cartTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
-    cartDetails += `\nTotal: $${cartTotal.toFixed(2)}`;
+    const cartTotal = parseFloat(document.querySelector('.cart-total').textContent.replace('$', ''));
     
-    alert(cartDetails);
+    const thankYouMessage = "Thank you for shopping with us!";
+    
+    // Show the cart details in an alert
+    alert(cartDetails + `\nTotal: $${cartTotal.toFixed(2)}\n\n${thankYouMessage}`);
+    
+    // Clear the cart
+    cart.length = 0;
+    
+    // Update the cart display
+    updateCart();
 }
 
 // Add event listener for the "Checkout" button
 const checkoutButton = document.querySelector('.checkout-button');
-checkoutButton.addEventListener('click', () => {
-    showCartDetails();
-});
+checkoutButton.addEventListener('click', checkout);
 
 // Initialize the cart display
 updateCart();
