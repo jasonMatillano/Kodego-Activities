@@ -11,7 +11,6 @@ const products = [
         name: "Product 2",
         description: "Description of Product 2",
         price: 29.99
-
     }
 ];
 
@@ -50,7 +49,7 @@ addInitialProducts();
 
 // Fill in the Cart Section in index.html===============================================
 
-// Define the cart object 
+// Define the cart object array
 const cart = [];
 
 // Function to update the cart's HTML content
@@ -72,7 +71,7 @@ function updateCart() {
         `;
         cartItemsList.appendChild(cartItem);
         
-        total += item.price * item.quantity;
+        total = total + (item.price * item.quantity);
     });
     
     // Update the total price
