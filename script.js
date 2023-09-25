@@ -36,6 +36,21 @@ function addProductToSection(productName, productDescription, productPrice) {
     productsSection.appendChild(productDiv);
 }
 
+// Function to add an item to the cart
+function addToCart(name, price) {
+    // Check if the item is already in the cart
+    const existingItem = cart.find(item => item.name === name);
+    
+    if (existingItem) {
+        existingItem.quantity++;
+    } else {
+        cart.push({ name, price, quantity: 1 });
+    }
+    
+    // Update the cart display
+    updateCart();
+}
+
 // Function to add initial products to the products section
 function addInitialProducts() {
     for (const product of products) {
@@ -72,6 +87,7 @@ function updateCart() {
         cartItemsList.appendChild(cartItem);
         
         total = total + (item.price * item.quantity);
+        console.log(total);
     });
     
     // Update the total price
@@ -91,20 +107,7 @@ function updateCart() {
 updateCart();
 
 
-// Function to add an item to the cart=======================================================
-function addToCart(name, price) {
-    // Check if the item is already in the cart
-    const existingItem = cart.find(item => item.name === name);
-    
-    if (existingItem) {
-        existingItem.quantity++;
-    } else {
-        cart.push({ name, price, quantity: 1 });
-    }
-    
-    // Update the cart display
-    updateCart();
-}
+
 
 // Function to remove an item from the cart==================================================
 function removeFromCart(name) {
