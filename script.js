@@ -1,3 +1,55 @@
+// Fill in the Product Listing Section in index.html============================================
+
+// Define prodect listing 
+const products = [
+    {
+        name: "Product 1",
+        description: "Description of Product 1",
+        price: 19.99
+    },
+    {
+        name: "Product 2",
+        description: "Description of Product 2",
+        price: 29.99
+
+    }
+];
+
+// Function to add products to the products section
+function addProductToSection(productName, productDescription, productPrice) {
+    const productsSection = document.querySelector('.products');
+    const productDiv = document.createElement('div');
+    productDiv.classList.add('product');
+    productDiv.innerHTML = `
+        <h3>${productName}</h3>
+        <p>${productDescription}</p>
+        <p>Price: $${productPrice.toFixed(2)}</p>
+        <button class="add-to-cart">Add to Cart</button>
+    `;
+    
+    // Add an event listener to the "Add to Cart" button
+    const addToCartButton = productDiv.querySelector('.add-to-cart');
+    addToCartButton.addEventListener('click', () => {
+        addToCart(productName, productPrice);
+    });
+    
+    // Append the product to the products section
+    productsSection.appendChild(productDiv);
+}
+
+// Function to add initial products to the products section
+function addInitialProducts() {
+    for (const product of products) {
+        addProductToSection(product.name, product.description, product.price);
+    }
+}
+
+// Initialize the product listing section
+addInitialProducts();
+
+
+// Fill in the Cart Section in index.html===============================================
+
 // Define the cart object 
 const cart = [];
 
@@ -36,7 +88,11 @@ function updateCart() {
     });
 }
 
-// Function to add an item to the cart
+// Initialize the cart display
+updateCart();
+
+
+// Function to add an item to the cart=======================================================
 function addToCart(name, price) {
     // Check if the item is already in the cart
     const existingItem = cart.find(item => item.name === name);
@@ -51,7 +107,7 @@ function addToCart(name, price) {
     updateCart();
 }
 
-// Function to remove an item from the cart
+// Function to remove an item from the cart==================================================
 function removeFromCart(name) {
     const itemIndex = cart.findIndex(item => item.name === name);
     
@@ -105,5 +161,3 @@ function checkout() {
 const checkoutButton = document.querySelector('.checkout-button');
 checkoutButton.addEventListener('click', checkout);
 
-// Initialize the cart display
-updateCart();
