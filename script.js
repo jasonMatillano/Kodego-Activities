@@ -1,5 +1,4 @@
-// Fill in the Product Listing Section in index.html============================================
-
+// #Fill in the Product Listing Section in index.html
 // Define prodect listing 
 const products = [
     {
@@ -36,6 +35,17 @@ function addProductToSection(productName, productDescription, productPrice) {
     productsSection.appendChild(productDiv);
 }
 
+// Function to add initial products to the products section
+function addInitialProducts() {
+    for (const product of products) {
+        addProductToSection(product.name, product.description, product.price);
+    }
+}
+
+// Initialize the product listing section
+addInitialProducts();
+
+
 // Function to add an item to the cart
 function addToCart(name, price) {
     // Check if the item is already in the cart
@@ -51,18 +61,6 @@ function addToCart(name, price) {
     updateCart();
 }
 
-// Function to add initial products to the products section
-function addInitialProducts() {
-    for (const product of products) {
-        addProductToSection(product.name, product.description, product.price);
-    }
-}
-
-// Initialize the product listing section
-addInitialProducts();
-
-
-// Fill in the Cart Section in index.html===============================================
 
 // Define the cart object array
 const cart = [];
@@ -87,7 +85,6 @@ function updateCart() {
         cartItemsList.appendChild(cartItem);
         
         total = total + (item.price * item.quantity);
-        console.log(total);
     });
     
     // Update the total price
@@ -112,7 +109,8 @@ updateCart();
 // Function to remove an item from the cart==================================================
 function removeFromCart(name) {
     const itemIndex = cart.findIndex(item => item.name === name);
-    
+
+    // Check the quantity of item in the cart and perform remove
     if (itemIndex !== -1) {
         const item = cart[itemIndex];
         if (item.quantity > 1) {
@@ -125,17 +123,6 @@ function removeFromCart(name) {
     // Update the cart display
     updateCart();
 }
-
-// Add event listeners for the "Add to Cart" buttons
-const addToCartButtons = document.querySelectorAll('.add-to-cart');
-addToCartButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const productDiv = button.closest('.product');
-        const productName = productDiv.querySelector('h2').textContent;
-        const productPrice = parseFloat(productDiv.querySelector('.price').textContent.replace('$', ''));
-        addToCart(productName, productPrice);
-    });
-});
 
 
 // Function to display the cart details in an alert

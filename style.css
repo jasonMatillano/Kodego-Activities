@@ -25,6 +25,14 @@ header {
   justify-content: center;
   gap: 20px;
   margin: 20px;
+  text-align: center; /* Center-align the content within .products */
+}
+
+/* Style the heading for products */
+.products h2 {
+  font-size: 24px; /* Increase the font size */
+  margin-top: 0; /* Remove top margin */
+  margin-bottom: 20px; /* Add some bottom margin for spacing */
 }
 
 .product {
