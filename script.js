@@ -129,15 +129,15 @@ function removeFromCart(name) {
 function checkout() {
     let cartDetails = "Shopping Cart:\n";
     cart.forEach(item => {
-        cartDetails += `${item.name} - $${item.price.toFixed(2)} x ${item.quantity}\n`;
+        cartDetails = cartDetails + `${item.name} - $${item.price.toFixed(2)} x ${item.quantity}\n`;
     });
     
-    const cartTotal = parseFloat(document.querySelector('.cart-total').textContent.replace('$', ''));
+    const cartTotal = document.querySelector('.cart-total').textContent;
     
     const thankYouMessage = "Thank you for shopping with us!";
     
     // Show the cart details in an alert
-    alert(cartDetails + `\nTotal: $${cartTotal.toFixed(2)}\n\n${thankYouMessage}`);
+    alert(cartDetails + `\nTotal: ${cartTotal}\n\n${thankYouMessage}`);
     
     // Clear the cart
     cart.length = 0;
