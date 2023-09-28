@@ -1,31 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Store</title>
-    <link rel="stylesheet" href="style.css">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Matillano Online Store</h1>
-    </header>
+  <div class="container">
+    <h1>Calculator</h1>
+    <div class="calculator">
+      <input type="text" id="result" class="form-control" disabled>
+      <div class="buttons">
+        <div class="row">
+          <div class="col">
+            <button onclick="appendToResult('7')" class="btn btn-primary btn-block">7</button>
+          </div>
+          <div class="col">
+            <button onclick="appendToResult('8')" class="btn btn-primary btn-block">8</button>
+          </div>
+          <div class="col">
+            <button onclick="appendToResult('9')" class="btn btn-primary btn-block">9</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <button onclick="appendToResult('4')" class="btn btn-primary btn-block">4</button>
+          </div>
+          <div class="col">
+            <button onclick="appendToResult('5')" class="btn btn-primary btn-block">5</button>
+          </div>
+          <div class="col">
+            <button onclick="appendToResult('6')" class="btn btn-primary btn-block">6</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <button onclick="appendToResult('1')" class="btn btn-primary btn-block">1</button>
+          </div>
+          <div class="col">
+            <button onclick="appendToResult('2')" class="btn btn-primary btn-block">2</button>
+          </div>
+          <div class="col">
+            <button onclick="appendToResult('3')" class="btn btn-primary btn-block">3</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <button onclick="appendToResult('0')" class="btn btn-primary btn-block">0</button>
+          </div>
+          <div class="col">
+            <button onclick="appendToResult('.')" class="btn btn-primary btn-block">.</button>
+          </div>
+          <div class="col">
+            <button onclick="clearResult()" class="btn btn-danger btn-block">C</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <button onclick="evaluateResult()" class="btn btn-success btn-block">=</button>
+          </div>
+          <div class="col">
+            <button onclick="appendToResult('+')" class="btn btn-primary btn-block">+</button>
+          </div>
+          <div class="col">
+            <button onclick="appendToResult('-')" class="btn btn-primary btn-block">-</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <button onclick="appendToResult('*')" class="btn btn-primary btn-block">*</button>
+          </div>
+          <div class="col">
+            <button onclick="appendToResult('/')" class="btn btn-primary btn-block">/</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <section class="products">
-        <h2>Pruducts</h2>
-        <!-- Add  products listings here -->
-        
-    </section>
-
-    <section class="cart">
-        <h2>Shopping Cart</h2>
-        <ul class="cart-items">
-            <!-- Cart items will be displayed here -->
-        </ul>
-        <p>Total: <span class="cart-total">$0.00</span></p>
-        <button class="checkout-button">Checkout</button>
-    </section>
-
-    <script src="script.js"></script>
+  <script src="script.js">
+  </script>
 </body>
 </html>
