@@ -13,6 +13,20 @@ const server = http.createServer((req, res) => {
         };
 
         res.end(JSON.stringify(data));
+    } else {
+        res.statusCode = 400
+        res.end(JSON.stringify({
+            status: res.statusCode, 
+            message: 'Bad Request'
+        }));
+    }
+
+    if (req.url === '/products' && req.method === 'POST') {
+        let body = '';
+
+        response.statusCode = 200;
+        const data = JSON.stringify({body: body});
+
     }
 });
 
