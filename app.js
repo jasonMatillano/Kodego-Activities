@@ -13,6 +13,12 @@ const server = http.createServer((req, res) => {
         };
 
         res.end(JSON.stringify(data));
+    } else {
+        res.statusCode = 400
+        res.end(JSON.stringify({
+            status: res.statusCode, 
+            message: 'Bad Request'
+        }));
     }
 });
 
