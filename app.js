@@ -23,6 +23,7 @@ const server = http.createServer((req, res) => {
 
     if (req.url === '/products' && req.method === 'POST') {
         let body = '';
+        
 
         response.statusCode = 200;
         const data = JSON.stringify({body: body});
