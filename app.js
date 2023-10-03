@@ -2,6 +2,7 @@ const http = require('http');
 
 const port = 3000;
 
+
 const server = http.createServer((req, res) => {
     // Set the content type to plain text for all responses
     res.setHeader('Content-Type', 'text/plain');
