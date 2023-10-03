@@ -1,4 +1,5 @@
 const http = require('http');
+const { parse } = require('querystring'); // Import the querystring module
 
 const port = 3000;
 
@@ -25,7 +26,6 @@ const server = http.createServer((req, res) => {
             const responseJSON = {
                 message: 'Contact us at contact@example.com'
             };
-            
             res.writeHead(200);
             res.end(JSON.stringify(responseJSON));
         } else {
@@ -36,8 +36,40 @@ const server = http.createServer((req, res) => {
             res.writeHead(404);
             res.end(JSON.stringify(responseJSON));
         }
+    } else if (req.method === 'POST') {
+        // Handle POST requests
+        if (req.url === '/submit') {
+            let body = '';
+
+            // Read the incoming data stream
+            req.on('data', chunk => {
+                body += chunk.toString();
+            });
+
+            // When the data stream ends
+            req.on('end', () => {
+                // Parse the POST data into a JavaScript object
+                const postData = parse(body);
+
+                // You can now work with the postData object
+                const responseJSON = {
+                    message: 'Received POST data',
+                    data: postData
+                };
+
+                res.writeHead(200);
+                res.end(JSON.stringify(responseJSON));
+            });
+        } else {
+            // Handle other POST routes
+            const responseJSON = {
+                message: 'Route not found for POST request'
+            };
+            res.writeHead(404);
+            res.end(JSON.stringify(responseJSON));
+        }
     } else {
-        // Handle non-GET requests with a 405 (Method Not Allowed) response
+        // Handle non-GET and non-POST requests with a 405 (Method Not Allowed) response
         const responseJSON = {
             message: 'Method not allowed'
         };
