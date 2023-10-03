@@ -1,36 +1,28 @@
 const http = require('http');
-const host = 'localhost';
+
 const port = 3000;
 
 const server = http.createServer((req, res) => {
-    if (req.url === '/profile' && req.method === 'GET') {
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'application/json'); // Use 'application/json' for JSON response
-        const data = {
-            name: 'Jason',
-            age: 30,
-            address: 'Bacolod'
-        };
+    // Set the content type to plain text for all responses
+    res.setHeader('Content-Type', 'text/plain');
 
-        res.end(JSON.stringify(data));
+    // Handle different routes based on the request URL
+    if (req.url === '/') {
+        res.writeHead(200);
+        res.end('Welcome to the Home Page!\n');
+    } else if (req.url === '/about') {
+        res.writeHead(200);
+        res.end('This is the About Page!\n');
+    } else if (req.url === '/contact') {
+        res.writeHead(200);
+        res.end('Contact us at contact@example.com\n');
     } else {
-        res.statusCode = 400
-        res.end(JSON.stringify({
-            status: res.statusCode, 
-            message: 'Bad Request'
-        }));
-    }
-
-    if (req.url === '/products' && req.method === 'POST') {
-        let body = '';
-        
-
-        response.statusCode = 200;
-        const data = JSON.stringify({body: body});
-
+        // Handle routes that are not found with a 404 response
+        res.writeHead(404);
+        res.end('Page not found\n');
     }
 });
 
-server.listen(port, host, () => {
-    console.log(`Server running at http://${host}:${port}/`);
+server.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}/`);
 });
