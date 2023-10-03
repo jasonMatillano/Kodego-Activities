@@ -1,10 +1,10 @@
 const http = require('http');
-const { parse } = require('querystring'); // Import the querystring module
+const { parse } = require('querystring');
+const fs = require('fs'); // Import the fs module
 
 const port = 3000;
 
 const server = http.createServer((req, res) => {
-    // Set the content type to JSON for all responses
     res.setHeader('Content-Type', 'application/json');
 
     // Check if the request method is GET
@@ -37,31 +37,36 @@ const server = http.createServer((req, res) => {
             res.end(JSON.stringify(responseJSON));
         }
     } else if (req.method === 'POST') {
-        // Handle POST requests
         if (req.url === '/submit') {
             let body = '';
 
-            // Read the incoming data stream
             req.on('data', chunk => {
                 body += chunk.toString();
             });
 
-            // When the data stream ends
             req.on('end', () => {
-                // Parse the POST data into a JavaScript object
                 const postData = parse(body);
 
-                // You can now work with the postData object
-                const responseJSON = {
-                    message: 'Received POST data',
-                    data: postData
-                };
-
-                res.writeHead(200);
-                res.end(JSON.stringify(responseJSON));
+                // Save the POST data to data.json file
+                fs.appendFile('data.json', JSON.stringify(postData) + '\n', err => {
+                    if (err) {
+                        console.error('Error writing to data.json:', err);
+                        const responseJSON = {
+                            message: 'Error saving data'
+                        };
+                        res.writeHead(500);
+                        res.end(JSON.stringify(responseJSON));
+                    } else {
+                        const responseJSON = {
+                            message: 'Received POST data and saved to data.json',
+                            data: postData
+                        };
+                        res.writeHead(200);
+                        res.end(JSON.stringify(responseJSON));
+                    }
+                });
             });
         } else {
-            // Handle other POST routes
             const responseJSON = {
                 message: 'Route not found for POST request'
             };
@@ -69,7 +74,6 @@ const server = http.createServer((req, res) => {
             res.end(JSON.stringify(responseJSON));
         }
     } else {
-        // Handle non-GET and non-POST requests with a 405 (Method Not Allowed) response
         const responseJSON = {
             message: 'Method not allowed'
         };
