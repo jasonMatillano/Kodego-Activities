@@ -25,6 +25,7 @@ const server = http.createServer((req, res) => {
             const responseJSON = {
                 message: 'Contact us at contact@example.com'
             };
+            
             res.writeHead(200);
             res.end(JSON.stringify(responseJSON));
         } else {
