@@ -60,7 +60,7 @@ const server = http.createServer((req, res) => {
                     // Parse user data from data.json
                     const users = JSON.parse(data).users;
                     const user = users.find(
-                        u => u.username === postData.username && u.password === postData.password
+                        u => (u.username === postData.identification || u.email === postData.identification) && u.password === postData.password
                     );
 
                     if (user) {
