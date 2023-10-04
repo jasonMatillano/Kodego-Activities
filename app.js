@@ -5,11 +5,15 @@ const fs = require('fs');
 const port = 3000;
 
 // Sample registration data (in-memory database)
+
 const registeredUsers = [
     { username: 'user1', password: 'password1' },
     { username: 'user2', password: 'password2' },
     // Add more registered users here
 ];
+
+const u1 = { username: 'user1', password: 'password1' }
+const u2 = { username: 'user2', password: 'password2' }
 
 const server = http.createServer((req, res) => {
     res.setHeader('Content-Type', 'application/json');
@@ -72,7 +76,8 @@ const server = http.createServer((req, res) => {
                         user: 'not found'
                     };
                     res.writeHead(401);
-                    res.end(JSON.stringify(responseJSON));
+                    // res.end(JSON.stringify(registeredUsers[0]));
+                    res.end(JSON.stringify(postData));
                 }
             });
         } else if (req.url === '/login') {
