@@ -79,6 +79,66 @@ const server = http.createServer((req, res) => {
                     }
                 });
             });
+        } else 
+        if (req.url === '/register') {
+            let body = '';
+
+            // Read data and convert to body string
+            req.on('data', chunk => {
+                body += chunk.toString();
+            });
+
+            req.on('end', () => {
+                // Convert body to postData object
+                const postData = JSON.parse(body);
+
+                // Read user data from data.json file
+                fs.readFile('data.json', 'utf8', (error, data) => {
+                    if (error) {
+                        console.error('Error reading file: ', error);
+                        res.writeHead(500, { 'Content-type': 'application/json' });
+                        res.end(JSON.stringify({ status: false, message: 'Internal Server Error' }));
+                        return;
+                    }
+
+                    // Parse user data from data.json
+                    const users = JSON.parse(data).users;
+
+                    // Check if the username or email is already taken
+                    const usernameTaken = users.some(u => u.username === postData.username);
+                    const emailTaken = users.some(u => u.email === postData.email);
+
+                    if (usernameTaken || emailTaken) {
+                        const responseJSON = {
+                            message: 'Username or email already taken.'
+                        };
+                        res.writeHead(400);
+                        res.end(JSON.stringify(responseJSON));
+                    } else {
+                        // Register the new user
+                        users.push({
+                            username: postData.username,
+                            email: postData.email,
+                            password: postData.password
+                        });
+
+                        // Save the updated user data to data.json
+                        fs.writeFile('data.json', JSON.stringify({ users }), 'utf8', error => {
+                            if (error) {
+                                console.error('Error writing file: ', error);
+                                res.writeHead(500, { 'Content-type': 'application/json' });
+                                res.end(JSON.stringify({ status: false, message: 'Internal Server Error' }));
+                            } else {
+                                const responseJSON = {
+                                    message: 'Registration successful'
+                                };
+                                res.writeHead(200);
+                                res.end(JSON.stringify(responseJSON));
+                            }
+                        });
+                    }
+                });
+            });
         } else {
             // Handle other POST routes
             const responseJSON = {
