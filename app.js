@@ -1,15 +1,21 @@
 const http = require('http');
 const { parse } = require('querystring');
-const fs = require('fs'); // Import the fs module
+const fs = require('fs');
 
 const port = 3000;
+
+// Sample registration data (in-memory database)
+const registeredUsers = [
+    { username: 'user1', password: 'password1' },
+    { username: 'user2', password: 'password2' },
+    // Add more registered users here
+];
 
 const server = http.createServer((req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
-    // Check if the request method is GET
     if (req.method === 'GET') {
-        // Handle different routes based on the request URL
+    // Handle different routes based on the request URL
         if (req.url === '/') {
             const responseJSON = {
                 message: 'Welcome to the Home Page!'
@@ -36,7 +42,8 @@ const server = http.createServer((req, res) => {
             res.writeHead(404);
             res.end(JSON.stringify(responseJSON));
         }
-    } else if (req.method === 'POST') {
+    } else 
+    if (req.method === 'POST') {
         if (req.url === '/submit') {
             let body = '';
 
@@ -47,26 +54,37 @@ const server = http.createServer((req, res) => {
             req.on('end', () => {
                 const postData = parse(body);
 
-                // Save the POST data to data.json file
-                fs.appendFile('data.json', JSON.stringify(postData) + '\n', err => {
-                    if (err) {
-                        console.error('Error writing to data.json:', err);
-                        const responseJSON = {
-                            message: 'Error saving data'
-                        };
-                        res.writeHead(500);
-                        res.end(JSON.stringify(responseJSON));
-                    } else {
-                        const responseJSON = {
-                            message: 'Received POST data and saved to data.json',
-                            data: postData
-                        };
-                        res.writeHead(200);
-                        res.end(JSON.stringify(responseJSON));
-                    }
-                });
+                // Check if the submitted credentials match a registered user
+                const user = registeredUsers.find(
+                    u => u.username === postData.username && u.password === postData.password
+                );
+
+                if (user) {
+                    const responseJSON = {
+                        message: 'Login successful',
+                        user: user
+                    };
+                    res.writeHead(200);
+                    res.end(JSON.stringify(responseJSON));
+                } else {
+                    const responseJSON = {
+                        message: 'Login failed. Invalid credentials.'
+                    };
+                    res.writeHead(401);
+                    res.end(JSON.stringify(responseJSON));
+                }
             });
+        } else if (req.url === '/login') {
+            // Handle login requests (POST) here
+            // You can implement the login form or logic here
+            // For this example, we'll just return a message
+            const responseJSON = {
+                message: 'Please submit your login credentials.'
+            };
+            res.writeHead(200);
+            res.end(JSON.stringify(responseJSON));
         } else {
+            // Handle other POST routes
             const responseJSON = {
                 message: 'Route not found for POST request'
             };
@@ -74,6 +92,7 @@ const server = http.createServer((req, res) => {
             res.end(JSON.stringify(responseJSON));
         }
     } else {
+        // Handle non-GET and non-POST requests with a 405 (Method Not Allowed) response
         const responseJSON = {
             message: 'Method not allowed'
         };

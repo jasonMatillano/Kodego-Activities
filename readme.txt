@@ -1,6 +1,11 @@
-BASIC NODE JS ROUTING
-1. Create a new folder for your project.
-2. Inside the project folder, create a file named app.js.
-3. In app.js, set up a basic web server using Node.js and the http module. The server should listen on port 3000.
-4. Extend the server to handle different routes. For example, create routes for the home page response (/), an about page response (/about), and a contact page response(/contact).
-5. Create a 404 response: Instead of a simple "Page Not Found" text, create a separate 404 page and display it when a route is not found.
+October 3, 2023 at 9:35 PM
+ASSIGNMENT FOR TOMORROW
+
+1. Create a Login endpoint (reference into the created registration) (e.g http://localhost:3000/login)
+2. Login endpoint should login the user depending on the data inside the data.json
+3. Login should accept either username or email.
+4. Add error handlers
+- When password and username/email does not match
+- Internal server error
+- When password is not supplied
+- When username or email is not supplied
