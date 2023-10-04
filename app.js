@@ -45,7 +45,7 @@ const server = http.createServer((req, res) => {
         }
     } else 
     if (req.method === 'POST') {
-        if (req.url === '/submit') {
+        if (req.url === '/login') {
             let body = '';
 
             req.on('data', chunk => {
@@ -75,14 +75,6 @@ const server = http.createServer((req, res) => {
                     res.end(JSON.stringify(responseJSON));
                 }
             });
-        } else if (req.url === '/login') {
-            // Handle login requests (POST) here
-            
-            const responseJSON = {
-                message: 'Please submit your login credentials.'
-            };
-            res.writeHead(200);
-            res.end(JSON.stringify(responseJSON));
         } else {
             // Handle other POST routes
             const responseJSON = {
