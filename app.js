@@ -56,7 +56,7 @@ const server = http.createServer((req, res) => {
             });
 
             req.on('end', () => {
-                const postData = parse(body);
+                const postData = JSON.parse(body);
 
                 // Check if the submitted credentials match a registered user
                 const user = registeredUsers.find(
@@ -73,11 +73,9 @@ const server = http.createServer((req, res) => {
                 } else {
                     const responseJSON = {
                         message: 'Login failed. Invalid credentials.',
-                        user: 'not found'
                     };
                     res.writeHead(401);
-                    // res.end(JSON.stringify(registeredUsers[0]));
-                    res.end(JSON.stringify(postData));
+                    res.end(JSON.stringify(responseJSON));
                 }
             });
         } else if (req.url === '/login') {
