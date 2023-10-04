@@ -1,18 +1,1 @@
-{
-    "users": [
-        {
-        "firstName": "Dharyl",
-        "lastName": "Almora",
-        "userName": "dharyl123",
-        "email": "dharyl@gmail.com",
-        "password": "dharyl111"
-        },
-        {
-        "firstName": "Kimbo",
-        "lastName": "Sanz",
-        "userName": "kimbo123",
-        "email": "kimbo@gmail.com",
-        "password": "kimbo111"
-        }
-    ]
-}
+{"users":[{"firstName":"Dharyl","lastName":"Almora","userName":"dharyl123","email":"dharyl@gmail.com","password":"dharyl111"},{"firstName":"Kimbo","lastName":"Sanz","userName":"kimbo123","email":"kimbo@gmail.com","password":"kimbo111"},{"firstName":"Jason","lastName":"Matillano","userName":"dharyl123","email":"dharyl@gmail.com","password":"dharyl111"},{"firstName":"Jason1","lastName":"Matillano","userName":"dharyl123","email":"dharyl@gmail.com","password":"dharyl111"},{"firstName":"Jason2","lastName":"Matillano","userName":"dharyl123","email":"dharyl@gmail.com","password":"dharyl111"}]}
