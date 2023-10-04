@@ -4,19 +4,11 @@ const fs = require('fs');
 
 const port = 3000;
 
-// Sample registration data (in-memory database)
-
-const registeredUsers = [
-    { username: 'user1', password: 'password1' },
-    { username: 'user2', password: 'password2' },
-    // Add more registered users here
-];
-
 const server = http.createServer((req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
     if (req.method === 'GET') {
-    // Handle different routes based on the request URL
+        // Handle different routes based on the request URL
         if (req.url === '/') {
             const responseJSON = {
                 message: 'Welcome to the Home Page!'
@@ -43,8 +35,7 @@ const server = http.createServer((req, res) => {
             res.writeHead(404);
             res.end(JSON.stringify(responseJSON));
         }
-    } else 
-    if (req.method === 'POST') {
+    } else if (req.method === 'POST') {
         if (req.url === '/login') {
             let body = '';
 
@@ -53,30 +44,40 @@ const server = http.createServer((req, res) => {
                 body += chunk.toString();
             });
 
-
             req.on('end', () => {
                 // Convert body to postData object
                 const postData = JSON.parse(body);
 
-                // Check if the submitted credentials match a registered user
-                const user = registeredUsers.find(
-                    u => u.username === postData.username && u.password === postData.password
-                );
+                // Read user data from data.json file
+                fs.readFile('data.json', 'utf8', (error, data) => {
+                    if (error) {
+                        console.error('Error reading file: ', error);
+                        res.writeHead(500, { 'Content-type': 'application/json' });
+                        res.end(JSON.stringify({ status: false, message: 'Internal Server Error' }));
+                        return;
+                    }
 
-                if (user) {
-                    const responseJSON = {
-                        message: 'Login successful',
-                        user: user
-                    };
-                    res.writeHead(200);
-                    res.end(JSON.stringify(responseJSON));
-                } else {
-                    const responseJSON = {
-                        message: 'Login failed. Invalid credentials.',
-                    };
-                    res.writeHead(401);
-                    res.end(JSON.stringify(responseJSON));
-                }
+                    // Parse user data from data.json
+                    const users = JSON.parse(data).users;
+                    const user = users.find(
+                        u => u.username === postData.username && u.password === postData.password
+                    );
+
+                    if (user) {
+                        const responseJSON = {
+                            message: 'Login successful',
+                            user: user
+                        };
+                        res.writeHead(200);
+                        res.end(JSON.stringify(responseJSON));
+                    } else {
+                        const responseJSON = {
+                            message: 'Login failed. Invalid credentials.'
+                        };
+                        res.writeHead(401);
+                        res.end(JSON.stringify(responseJSON));
+                    }
+                });
             });
         } else {
             // Handle other POST routes
