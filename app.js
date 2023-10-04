@@ -2,105 +2,67 @@ const http = require('http');
 const { parse } = require('querystring');
 const fs = require('fs');
 
-const port = 3000;
-
-// Sample registration data (in-memory database)
-const registeredUsers = [
-    { username: 'user1', password: 'password1' },
-    { username: 'user2', password: 'password2' },
-    // Add more registered users here
-];
+const PORT = 3000; // Use uppercase for constants
 
 const server = http.createServer((req, res) => {
-    res.setHeader('Content-Type', 'application/json');
-
-    if (req.method === 'GET') {
-    // Handle different routes based on the request URL
-        if (req.url === '/') {
-            const responseJSON = {
-                message: 'Welcome to the Home Page!'
-            };
-            res.writeHead(200);
-            res.end(JSON.stringify(responseJSON));
-        } else if (req.url === '/about') {
-            const responseJSON = {
-                message: 'This is the About Page!'
-            };
-            res.writeHead(200);
-            res.end(JSON.stringify(responseJSON));
-        } else if (req.url === '/contact') {
-            const responseJSON = {
-                message: 'Contact us at contact@example.com'
-            };
-            res.writeHead(200);
-            res.end(JSON.stringify(responseJSON));
-        } else {
-            // Handle routes that are not found with a 404 response
-            const responseJSON = {
-                message: 'Page not found'
-            };
-            res.writeHead(404);
-            res.end(JSON.stringify(responseJSON));
-        }
-    } else 
-    if (req.method === 'POST') {
-        if (req.url === '/submit') {
-            let body = '';
-
-            req.on('data', chunk => {
-                body += chunk.toString();
-            });
-
-            req.on('end', () => {
-                const postData = parse(body);
-
-                // Check if the submitted credentials match a registered user
-                const user = registeredUsers.find(
-                    u => u.username === postData.username && u.password === postData.password
-                );
-
-                if (user) {
-                    const responseJSON = {
-                        message: 'Login successful',
-                        user: user
-                    };
-                    res.writeHead(200);
-                    res.end(JSON.stringify(responseJSON));
+    if (req.method === 'POST' && req.url === '/register') { // Fixed the conditions here
+        let body = '';
+        req.on('data', chunk => {
+            body += chunk.toString();
+        });
+        req.on('end', () => {
+            try {
+                const data = JSON.parse(body);
+                const { firstName, lastName, userName, email, password } = data;
+                if (!firstName || !lastName || !userName || !email || !password) {
+                    res.writeHead(400, { 'Content-type': 'application/json' }); // Changed status code to 400 for Bad Request
+                    res.end(JSON.stringify({ status: false, message: 'All fields are required' }));
                 } else {
-                    const responseJSON = {
-                        message: 'Login failed. Invalid credentials.',
-                        user: 'not found'
-                    };
-                    res.writeHead(401);
-                    res.end(JSON.stringify(responseJSON));
+                    fs.readFile('data.json', 'utf8', (error, fileData) => {
+                        if (error) {
+                            console.error('Error reading file: ', error);
+                            res.writeHead(500, { 'Content-type': 'application/json' }); // Changed status code to 500 for Internal Server Error
+                            res.end(JSON.stringify({ status: false, message: 'Internal Server Error' }));
+                            return;
+                        }
+                        const users = JSON.parse(fileData).users || [];
+                        const user = { firstName, lastName, userName, email, password };
+                        users.push(user);
+                        fs.writeFile('data.json', JSON.stringify({ users }), 'utf8', (error) => {
+                            if (error) {
+                                console.error('Error writing file: ', error);
+                                res.writeHead(500, { 'Content-type': 'application/json' });
+                                res.end(JSON.stringify({ status: false, message: 'Internal Server Error' }));
+                                return;
+                            } else {
+                                res.writeHead(200, { 'Content-type': 'application/json' });
+                                res.end(JSON.stringify({ status: true, message: 'User registered successfully' }));
+                            }
+                        });
+                    });
                 }
-            });
-        } else if (req.url === '/login') {
-            // Handle login requests (POST) here
-            
-            const responseJSON = {
-                message: 'Please submit your login credentials.'
-            };
-            res.writeHead(200);
-            res.end(JSON.stringify(responseJSON));
-        } else {
-            // Handle other POST routes
-            const responseJSON = {
-                message: 'Route not found for POST request'
-            };
-            res.writeHead(404);
-            res.end(JSON.stringify(responseJSON));
-        }
-    } else {
-        // Handle non-GET and non-POST requests with a 405 (Method Not Allowed) response
-        const responseJSON = {
-            message: 'Method not allowed'
-        };
-        res.writeHead(405);
-        res.end(JSON.stringify(responseJSON));
+            } catch (error) {
+                console.error('Error parsing JSON: ', error);
+                res.writeHead(400, { 'Content-type': 'application/json' });
+                res.end(JSON.stringify({ status: false, message: 'Invalid Format' }));
+            }
+        });
+    } else if (req.method === 'GET' && req.url === '/getAllUsers') { // Fixed the conditions here
+        fs.readFile('data.json', 'utf8', (error, data) => {
+            if (error) {
+                console.error('Error reading file: ', error);
+                res.writeHead(500, { 'Content-type': 'application/json' });
+                res.end(JSON.stringify({ status: false, message: 'Internal Server Error' }));
+                return;
+            }
+
+            const users = JSON.parse(data).users;
+            res.writeHead(200, { 'Content-type': 'application/json' });
+            res.end(JSON.stringify(users));
+        });
     }
 });
 
-server.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}/`);
+server.listen(PORT, () => {
+    console.log(`Server is running at http://localhost:${PORT}`);
 });
