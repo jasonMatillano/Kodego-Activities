@@ -48,11 +48,14 @@ const server = http.createServer((req, res) => {
         if (req.url === '/login') {
             let body = '';
 
+            // Read data and convert to body string
             req.on('data', chunk => {
                 body += chunk.toString();
             });
 
+
             req.on('end', () => {
+                // Convert body to postData object
                 const postData = JSON.parse(body);
 
                 // Check if the submitted credentials match a registered user
