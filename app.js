@@ -68,7 +68,8 @@ const server = http.createServer((req, res) => {
                     res.end(JSON.stringify(responseJSON));
                 } else {
                     const responseJSON = {
-                        message: 'Login failed. Invalid credentials.'
+                        message: 'Login failed. Invalid credentials.',
+                        user: 'not found'
                     };
                     res.writeHead(401);
                     res.end(JSON.stringify(responseJSON));
@@ -76,8 +77,7 @@ const server = http.createServer((req, res) => {
             });
         } else if (req.url === '/login') {
             // Handle login requests (POST) here
-            // You can implement the login form or logic here
-            // For this example, we'll just return a message
+            
             const responseJSON = {
                 message: 'Please submit your login credentials.'
             };
