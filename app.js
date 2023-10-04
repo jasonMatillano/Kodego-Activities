@@ -12,9 +12,6 @@ const registeredUsers = [
     // Add more registered users here
 ];
 
-const u1 = { username: 'user1', password: 'password1' }
-const u2 = { username: 'user2', password: 'password2' }
-
 const server = http.createServer((req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
