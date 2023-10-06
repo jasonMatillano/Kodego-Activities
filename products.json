@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
-    "name": "Sample Product",
-    "price": 19.99,
-    "description": "This is a sample product description."
+    "name": "Updated Product Name",
+    "price": 29.99,
+    "description": "Updated product description"
   },
   {
     "id": 2,
