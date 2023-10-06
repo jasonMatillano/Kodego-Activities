@@ -22,5 +22,17 @@
     "name": "Sample Product",
     "price": 19.99,
     "description": "This is a sample product description."
+  },
+  {
+    "id": 5,
+    "name": "Sample Product",
+    "price": 19.99,
+    "description": "This is a sample product description."
+  },
+  {
+    "id": 6,
+    "name": "Sample Product",
+    "price": 19.99,
+    "description": "This is a sample product description."
   }
 ]
