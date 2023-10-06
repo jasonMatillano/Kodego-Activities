@@ -14,10 +14,11 @@ const server = http.createServer((req, res) => {
 
     // Define the match variable here to make it accessible in both GET and PUT handlers
     const match = pathname.match(/^\/products\/(\d+)$/);
+
+    // Handle DELETE/GET/PUT requests to /products/{id} endpoint
+    const productId = parseInt(match[1], 10);
     
     if (req.method === 'DELETE' && match) {
-        // Handle DELETE requests to /products/{id} endpoint
-        const productId = parseInt(match[1], 10);
     
         // Read the existing products from products.json (if the file exists)
         fs.readFile('products.json', 'utf8', (err, data) => {
@@ -61,8 +62,6 @@ const server = http.createServer((req, res) => {
         });
     } else if (req.method === 'GET') {    
         if (match) {
-            // Handle GET requests to /products/{id} endpoint
-            const productId = parseInt(match[1], 10);
     
             // Read the existing products from products.json (if the file exists)
             fs.readFile('products.json', 'utf8', (err, data) => {
@@ -94,8 +93,6 @@ const server = http.createServer((req, res) => {
             });
         }
     } else if (req.method === 'PUT' && match) {
-        // Handle PUT requests to /products/{id} endpoint
-        const productId = parseInt(match[1], 10);
 
         // Read the existing products from products.json (if the file exists)
         fs.readFile('products.json', 'utf8', (err, data) => {
