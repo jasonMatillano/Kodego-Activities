@@ -1,58 +1,64 @@
+// Import Necessary Modules
 const http = require('http');
+const url = require('url');
+const querystring = require('querystring');
 const fs = require('fs');
-const path = require('path');
 
+// Create an HTTP Server
 const port = 3000;
 
 const server = http.createServer((req, res) => {
-    // Ignore requests for favicon.ico
-    if (req.url === '/favicon.ico') {
-        res.writeHead(204); // No content response
-        res.end();
-        return;
-    }
-
-    // Set the content type based on the file extension
-    const ext = path.extname(req.url);
-    let contentType = 'text/html';
-
-    if (ext === '.css') {
-        contentType = 'text/css';
-    } else if (ext === '.js') {
-        contentType = 'text/javascript';
-    }
-
-    res.setHeader('Content-Type', contentType);
-
-    // Handle the default route by serving index.html
-    if (req.url === '/' || req.url === '/index.html') {
-        const filePath = path.join(__dirname, 'index.html');
-        fs.readFile(filePath, 'utf8', (err, data) => {
-            if (err) {
-                console.error('Error reading file:', err);
-                res.writeHead(500);
-                res.end('Internal Server Error');
-            } else {
-                res.writeHead(200);
-                res.end(data);
-            }
+    // Parse the URL to get the pathname
+    const { pathname } = url.parse(req.url);
+  
+    if (req.method === 'POST' && pathname === '/products') {
+      // Handle POST requests to /products endpoint
+      
+      // Create an empty array to hold products (if not already defined)
+      let products = [];
+  
+      // Read the existing products from products.json (if the file exists)
+      fs.readFile('products.json', 'utf8', (err, data) => {
+        if (!err) {
+          try {
+            products = JSON.parse(data);
+          } catch (error) {
+            console.error('Error parsing JSON:', error);
+          }
+        }
+  
+        // Parse incoming data (product details) from the request body
+        let requestBody = '';
+        req.on('data', (chunk) => {
+          requestBody += chunk.toString();
         });
+  
+        req.on('end', () => {
+          const newProduct = JSON.parse(requestBody);
+  
+          // Add the new product to the products array
+          products.push(newProduct);
+  
+          // Save the updated products array to products.json
+          fs.writeFile('products.json', JSON.stringify(products, null, 2), 'utf8', (err) => {
+            if (err) {
+              console.error('Error writing to products.json:', err);
+              res.writeHead(500, { 'Content-Type': 'application/json' });
+              res.end(JSON.stringify({ error: 'Internal Server Error' }));
+            } else {
+              // Return the created product with a 201 status code
+              res.writeHead(201, { 'Content-Type': 'application/json' });
+              res.end(JSON.stringify(newProduct));
+            }
+          });
+        });
+      });
     } else {
-        // Serve other files based on the requested URL
-        const filePath = path.join(__dirname, req.url);
-        fs.readFile(filePath, 'utf8', (err, data) => {
-            if (err) {
-                console.error('Error reading file:', err);
-                res.writeHead(404);
-                res.end('Not Found');
-            } else {
-                res.writeHead(200);
-                res.end(data);
-            }
-        });
+      // Handle other routes and methods here
+      // ...
     }
-});
+  });
 
 server.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}/`);
+  console.log(`Server is running on http://localhost:${port}/`);
 });
