@@ -10,7 +10,29 @@ const port = 3000;
 const server = http.createServer((req, res) => {
     // Parse the URL to get the pathname
     const { pathname } = url.parse(req.url);
-  
+    if (req.method === 'GET' && pathname === '/products') {
+        // Handle GET requests to /products endpoint
+    
+        // Read the existing products from products.json (if the file exists)
+        fs.readFile('products.json', 'utf8', (err, data) => {
+            if (err) {
+                console.error('Error reading products.json:', err);
+                res.writeHead(500, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: 'Internal Server Error' }));
+            } else {
+                let products = [];
+                try {
+                    products = JSON.parse(data);
+                } catch (error) {
+                    console.error('Error parsing JSON:', error);
+                }
+    
+                // Return the list of all products with a 200 status code
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify(products));
+            }
+        });
+    } else
     if (req.method === 'POST' && pathname === '/products') {
       // Handle POST requests to /products endpoint
       
