@@ -1,7 +1,6 @@
 // Import Necessary Modules
 const http = require('http');
 const url = require('url');
-const querystring = require('querystring');
 const fs = require('fs');
 
 // Create an HTTP Server at port 3000
