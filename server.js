@@ -4,12 +4,51 @@ const url = require('url');
 const querystring = require('querystring');
 const fs = require('fs');
 
-// Create an HTTP Server
+// Create an HTTP Server at port 3000
 const port = 3000;
 
 const server = http.createServer((req, res) => {
     // Parse the URL to get the pathname
     const { pathname } = url.parse(req.url);
+    if (req.method === 'GET') {
+        // Parse the URL to get the pathname and product ID
+        const { pathname } = url.parse(req.url);
+        const match = pathname.match(/^\/products\/(\d+)$/);
+    
+        if (match) {
+            // Handle GET requests to /products/{id} endpoint
+            const productId = parseInt(match[1], 10);
+    
+            // Read the existing products from products.json (if the file exists)
+            fs.readFile('products.json', 'utf8', (err, data) => {
+                if (err) {
+                    console.error('Error reading products.json:', err);
+                    res.writeHead(500, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify({ error: 'Internal Server Error' }));
+                } else {
+                    let products = [];
+                    try {
+                        products = JSON.parse(data);
+                    } catch (error) {
+                        console.error('Error parsing JSON:', error);
+                    }
+    
+                    // Find the product with the matching ID
+                    const product = products.find((p) => p.id === productId);
+    
+                    if (product) {
+                        // Return the product details with a 200 status code
+                        res.writeHead(200, { 'Content-Type': 'application/json' });
+                        res.end(JSON.stringify(product));
+                    } else {
+                        // Return a 404 status code if the product is not found
+                        res.writeHead(404, { 'Content-Type': 'application/json' });
+                        res.end(JSON.stringify({ error: 'Product not found' }));
+                    }
+                }
+            });
+        }
+    } else
     if (req.method === 'GET' && pathname === '/products') {
         // Handle GET requests to /products endpoint
     
