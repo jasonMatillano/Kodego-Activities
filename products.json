@@ -1,18 +1,12 @@
 [
   {
     "id": 1,
-    "name": "Sample Product",
-    "price": 19.99,
-    "description": "This is a sample product description."
+    "name": "Updated Product Name Again New",
+    "price": 29.99,
+    "description": "Updated product description"
   },
   {
     "id": 2,
-    "name": "Sample Product",
-    "price": 19.99,
-    "description": "This is a sample product description."
-  },
-  {
-    "id": 3,
     "name": "Sample Product",
     "price": 19.99,
     "description": "This is a sample product description."
@@ -22,5 +16,47 @@
     "name": "Sample Product",
     "price": 19.99,
     "description": "This is a sample product description."
+  },
+  {
+    "name": "Sample Product",
+    "description": "This is a sample product description.",
+    "price": 19.99,
+    "id": 5
+  },
+  {
+    "name": "Sample Product",
+    "description": "This is a sample product description.",
+    "price": 19.99,
+    "id": 6
+  },
+  {
+    "name": "Sample Product",
+    "description": "This is a sample product description.",
+    "price": 19.99,
+    "id": 7
+  },
+  {
+    "name": "Sample Product",
+    "description": "This is a sample product description.",
+    "price": 19.99,
+    "id": 8
+  },
+  {
+    "name": "Sample Product",
+    "description": "This is a sample product description.",
+    "price": 19.99,
+    "id": 9
+  },
+  {
+    "name": "Sample Product",
+    "description": "This is a sample product description.",
+    "price": 19.99,
+    "id": 10
+  },
+  {
+    "name": "Sample Product",
+    "description": "This is a sample product description.",
+    "price": 19.99,
+    "id": 11
   }
 ]
