@@ -178,7 +178,57 @@ const server = http.createServer((req, res) => {
                 }
             });
         }
-    }    
+    } else if (req.method === 'DELETE') {
+        // Parse the URL to get the pathname and product ID
+        const { pathname } = url.parse(req.url);
+        const match = pathname.match(/^\/products\/(\d+)$/);
+    
+        if (match) {
+            // Handle DELETE requests to /products/{id} endpoint
+            const productId = parseInt(match[1], 10);
+    
+            // Read the existing products from products.json (if the file exists)
+            fs.readFile('products.json', 'utf8', (err, data) => {
+                if (err) {
+                    console.error('Error reading products.json:', err);
+                    res.writeHead(500, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify({ error: 'Internal Server Error' }));
+                } else {
+                    let products = [];
+                    try {
+                        products = JSON.parse(data);
+                    } catch (error) {
+                        console.error('Error parsing JSON:', error);
+                    }
+    
+                    // Find the product with the matching ID
+                    const deletedProductIndex = products.findIndex((p) => p.id === productId);
+    
+                    if (deletedProductIndex !== -1) {
+                        // Remove the product from the products array
+                        const deletedProduct = products.splice(deletedProductIndex, 1)[0];
+    
+                        // Save the updated products array to products.json
+                        fs.writeFile('products.json', JSON.stringify(products, null, 2), 'utf8', (err) => {
+                            if (err) {
+                                console.error('Error writing to products.json:', err);
+                                res.writeHead(500, { 'Content-Type': 'application/json' });
+                                res.end(JSON.stringify({ error: 'Internal Server Error' }));
+                            } else {
+                                // Return the deleted product with a 200 status code
+                                res.writeHead(200, { 'Content-Type': 'application/json' });
+                                res.end(JSON.stringify(deletedProduct));
+                            }
+                        });
+                    } else {
+                        // Return a 404 status code if the product is not found
+                        res.writeHead(404, { 'Content-Type': 'application/json' });
+                        res.end(JSON.stringify({ error: 'Product not found' }));
+                    }
+                }
+            });
+        }
+    }        
     else {
         // Handle other routes and methods here
         // ...
