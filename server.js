@@ -238,3 +238,9 @@ const server = http.createServer((req, res) => {
 server.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}/`);
 });
+
+// Code Functionality:
+// 1. GET: You can retrieve a list of all products at /products and retrieve a specific product by its ID at /products/{id}.
+// 2. POST: You can create a new product by sending a POST request to /products.
+// 3. PUT: You can update an existing product by sending a PUT request to /products/{id}.
+// 4. DELETE: You can delete an existing product by sending a DELETE request to /products/{id}.

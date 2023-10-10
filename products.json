@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Updated Product Name Again New",
+    "name": "Updated Product Name",
     "price": 29.99,
     "description": "Updated product description"
   },
@@ -46,5 +46,11 @@
     "description": "This is a sample product description.",
     "price": 19.99,
     "id": 9
+  },
+  {
+    "name": "Another Sample Product",
+    "description": "This is a sample product description.",
+    "price": 29.99,
+    "id": 11
   }
 ]
