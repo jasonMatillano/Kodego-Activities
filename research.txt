@@ -1,3 +1,0 @@
-1. Research About MVC Pattern (Model-View-Controller)
-2. Research What is a RESTful API
-3. Research why MVC is usually or best used for creating APIs
