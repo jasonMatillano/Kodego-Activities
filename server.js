@@ -13,6 +13,7 @@ app.get('/', (req, res) => {
 
 // Import and use the user router defined in the './routers/users' module
 const userRouter = require('./routers/users');
+
 app.use('/users', userRouter);
 
 // Start the Express application and make it listen on port 3000

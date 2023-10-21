@@ -13,4 +13,15 @@ router.get('/new', (req, res) => {
     res.send("User New Form");
 });
 
+router.post('/', (req, res) => {
+    // This route handles the '/new' URL and sends a response of "User New Form".
+    res.send("Create User");
+});
+
+router.get('/:id', (req, res) => { 
+    // This route handles the '/:id' URL and sends a response of "User Details".
+    req.params.id
+    res.send("Get User with ID: " + req.params.id);
+});
+
 module.exports = router;
