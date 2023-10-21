@@ -13,15 +13,31 @@ router.get('/new', (req, res) => {
     res.send("User New Form");
 });
 
+// Route for creating a new user when submitting a POST request to '/'
 router.post('/', (req, res) => {
-    // This route handles the '/new' URL and sends a response of "User New Form".
+    // This route handles the '/' URL for a POST request and sends a response of "Create User".
     res.send("Create User");
 });
 
-router.get('/:id', (req, res) => { 
-    // This route handles the '/:id' URL and sends a response of "User Details".
-    req.params.id
-    res.send("Get User with ID: " + req.params.id);
+// Route for retrieving user details when accessing '/:id' (e.g., '/1', '/2', etc.)
+router.get('/:id', (req, res) => {
+    // This route handles dynamic URLs like '/1', '/2', etc., and sends a response with user details.
+    const userId = req.params.id;
+    res.send("Get User with ID: " + userId);
+});
+
+// Route for updating a user when sending a PUT request to '/:id'
+router.put('/:id', (req, res) => {
+    // This route handles updating a user with a specific ID via a PUT request.
+    const userId = req.params.id;
+    res.send("Update User with ID: " + userId);
+});
+
+// Route for deleting a user when sending a DELETE request to '/:id'
+router.delete('/:id', (req, res) => {
+    // This route handles deleting a user with a specific ID via a DELETE request.
+    const userId = req.params.id;
+    res.send("Delete User with ID: " + userId);
 });
 
 module.exports = router;
