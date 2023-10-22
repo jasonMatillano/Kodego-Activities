@@ -22,12 +22,25 @@ async function fetchUserData() {
 
       // Add a click event listener to each "Delete" button
       const deleteButton = row.querySelector(`#delete-user-${user.id}`);
-      deleteButton.addEventListener("click", () => {
-        // Find the parent row
-        const parentRow = deleteButton.closest("tr");
-        const deletedUserId = parentRow.querySelector("td").textContent; // Get the ID of the deleted user
-        console.log("Deleted User ID:", deletedUserId); // Log the deleted user's ID to the console
-        parentRow.remove(); // Remove the row
+      deleteButton.addEventListener("click", async () => {
+        const userId = user.id;
+
+        // Make a DELETE request to remove the user with the specified ID
+        try {
+          const deleteResponse = await fetch(`http://localhost:3030/users/${userId}`, {
+            method: 'DELETE',
+          });
+
+          if (deleteResponse.ok) {
+            console.log(`User with ID ${userId} has been deleted.`);
+            // Remove the row from the table
+            row.remove();
+          } else {
+            console.error(`Failed to delete user with ID ${userId}.`);
+          }
+        } catch (error) {
+          console.error('Error deleting user:', error);
+        }
       });
     });
   } catch (error) {
