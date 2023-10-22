@@ -68,6 +68,7 @@ const server = http.createServer((req, res) => {
             } else {
                 // Handle other GET routes here
                 // ...
+                
             }
         }
     } else if (req.method === 'POST' && pathname === '/products') {
