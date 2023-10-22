@@ -1,67 +1,58 @@
-# Product Management CRUD Application using Node.js
+------------------
+Express.js Product Management App
+------------------
 
-Instructions:
+This is a simple Express.js application for managing products, allowing you to create, read, update, and delete product records. This readme provides instructions on how to set up and use the application.
 
-# Step 1: Setting Up the Server
-*** Create a file named server.js in your project folder. *** 
-*** Import necessary Node.js modules: http, url, querystring, and fs.  ***
-*** Create a file named products.json, for this is where you’re going to store and manipulate the data. ***
-*** Create an HTTP server and listen on a specific port (e.g., 3000). ***
+Installation:
+1. Clone this repository to your local machine.
 
-# Step 2: Implementing CRUD Operations
+2. Navigate to the project root directory:
+   ```
+   cd <name of directory>
+   ```
 
-*** 1. Create (POST) ***
-```
-Handle POST requests to /products endpoint.
-Parse incoming data (product details) from the request body.
-Add the new product to the products array.
-Return the created product with a 201 status code.
-```
+3. Install the required dependencies using npm:
+   ```
+   npm install
+   ```
 
-*** 2. Get All Products (GET) ***
-```
-Handle GET requests to /products endpoint.
-Return the list of all products from the products array with a 200 status code.
-```
+Usage:
+1. Start the Express.js server:
+   ```
+   npm start
+   ```
 
-*** 3. Read Single Product (GET) ***
-```
-Handle GET requests to /products/{id} endpoint (replace {id} with the product ID).
-Extract the product ID from the URL and find the product with the matching ID.
-Return the product details with a 200 status code if found; otherwise, return a 404 status code.
-```
+2. The server will be running at http://localhost:3030/. You can access the following routes:
 
-*** 4. Update (PUT) ***
-```
-Handle PUT requests to /products/{id} endpoint (replace {id} with the product ID).
-Extract the product ID from the URL and find the product with the matching ID.
-Parse incoming data (updated product details) from the request body.
-Update the product details in the products array.
-Return the updated product with a 200 status code if found; otherwise, return a 404 status code.
-```
+   - GET /products
+     Retrieve a list of all products.
 
-*** 5. Delete (DELETE) ***
-```
-Handle DELETE requests to /products/{id} endpoint (replace {id} with the product ID).
-Extract the product ID from the URL and find the product with the matching ID.
-Remove the product from the products array.
-Return the deleted product with a 200 status code if found; otherwise, return a 404 status code.
-```
+   - GET /products/:id
+     Retrieve a specific product by its ID.
 
-# Additional Instructions:
-```
-Implement basic error handling for invalid routes and malformed requests.
-Store data persistently: Consider using a JSON file to store products data between server restarts.
-Add validation: Ensure that product fields are validated before processing CRUD operations.
-Enhance the API: Add more features like pagination, filtering, or sorting based on product attributes.
-```
+   - POST /products
+     Create a new product by sending a POST request with a JSON body containing product details (name, price, description).
 
-# IMPORTANT NOTE:
-```
-SUBMIT THE CODE IN SCREENSHOT FORM
-I WON’T ACCEPT ANY ZIP FILES AS SUBMISSION
-ADD DESCRIPTION PER CODE SCREENSHOT
-EXPLAIN THE FLOW
-EXPLAIN WHY IS IT USED
-ENJOY!
+   - PUT /products/:id
+     Update an existing product by sending a PUT request with a JSON body containing updated product details.
+
+   - DELETE /products/:id
+     Delete an existing product by sending a DELETE request with the product's ID.
+
+3. All products are stored in a JSON file named 'products.json'. You can view and edit this file to manage the product data.
+
+4. When creating a new product, the server automatically assigns an ID to the product in ascending order.
+
+5. The application provides error handling for various scenarios, such as product not found, internal server errors, and more.
+
+Contributing:
+If you would like to contribute to this project or report issues, please create a GitHub issue or submit a pull request.
+
+License:
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+Feel free to reach out if you have any questions or need further assistance.
+
+Happy coding!
 ```
