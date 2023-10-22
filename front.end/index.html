@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #19792e;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        h1 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="text-white text-center py-4">
+        <h1>User Management</h1>
+    </header>
+    
+    <main class="container">
+        <div class="row justify-content-center align-items-center" style="min-height: 100vh;">
+            <!-- Form Column -->
+            <div class="col-md-6">
+                <div class="todo-container bg-white p-4 shadow rounded">
+                    <div class="input-container mb-3">
+                        <!-- Input fields and buttons use Bootstrap classes -->
+                        <input type="text" id="id-input" class="form-control mb-2" placeholder="ID" disabled>
+                        <input type="text" id="username-input" class="form-control mb-2" placeholder="Username">
+                        <input type="text" id="password-input" class="form-control mb-2" placeholder="Password">
+                        <input type="text" id="email-input" class="form-control mb-2" placeholder="Email">
+                        <div class="mb-3">
+                            <button id="add-user" class="btn btn-primary">Add User</button>
+                            <button id=" update-user" class="btn btn-secondary">Update User</button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table Column -->
+            <div class="col-md-6">
+                <div>
+                    <!-- Search by ID Feature -->
+                    <div class="input-container">
+                        <input type="text" id="search-input" class="form-control" placeholder="Search ID">
+                        <button id="search-button" class="btn btn-secondary">Search</button>
+                    </div>
+
+                    <table id="user-table" class="table table-bordered table-striped mt-4">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>Password</th>
+                                <th>Email</th>
+                                <th>Remove?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr>
+                                <td>1</td>
+                                <td>user1</td>
+                                <td>password1</td>
+                                <td>user1@example.com</td>
+                                <td><button class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>user2</td>
+                                <td>password2</td>
+                                <td>user2@example.com</td>
+                                <td><button class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>user3</td>
+                                <td>password3</td>
+                                <td>user3@example.com</td>
+                                <td><button class="btn btn-danger">Delete</button></td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add your Bootsrap Jquery and Popper -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <!-- Add your JavaScript -->
+    <script src="scripts/script.js"></script>
+    <script src="scripts/script.create.user.js"></script>
+    <script src="scripts/script.fill.table.js"></script>
+    <script src="scripts/script.search.js"></script>
+</body>
+</html>

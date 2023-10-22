@@ -1,8 +1,12 @@
 const express = require('express');
 const fs = require('fs');
+const cors = require('cors'); // Require the 'cors' middleware
 
 const app = express();
 const port = 3030;
+
+// Middleware to enable CORS
+app.use(cors());
 
 // Middleware to parse JSON in request bodies
 app.use(express.json());
