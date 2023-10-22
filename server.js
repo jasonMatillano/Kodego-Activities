@@ -4,7 +4,7 @@ const url = require('url');
 const fs = require('fs');
 
 // Create an HTTP Server at port 3000
-const port = 3000;
+const port = 3030;
 
 const server = http.createServer((req, res) => {
     // Parse the URL to get the pathname
