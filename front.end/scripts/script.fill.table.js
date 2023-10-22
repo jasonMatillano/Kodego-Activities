@@ -3,13 +3,13 @@ const tbody = userTable.querySelector("tbody");
 
 async function fetchUserData() {
   try {
-    const response = await fetch('http://localhost:3030/users'); // Updated URL
+    const response = await fetch('http://localhost:3030/users');
     if (!response.ok) {
       throw new Error('Failed to fetch data');
     }
     const data = await response.json();
 
-    data.forEach((user) => { // Assuming data is an array of users
+    data.forEach((user) => {
       const row = document.createElement("tr");
       row.innerHTML = `
         <td>${user.id}</td>
