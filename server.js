@@ -7,134 +7,134 @@ const port = 3030;
 // Middleware to parse JSON in request bodies
 app.use(express.json());
 
-// Function to read products from the JSON file
-function readProductsFromFile() {
+// Function to read users from the JSON file
+function readusersFromFile() {
   try {
-    const data = fs.readFileSync('products.json', 'utf8');
+    const data = fs.readFileSync('users.json', 'utf8');
     return JSON.parse(data);
   } catch (error) {
-    console.error('Error reading products.json:', error);
+    console.error('Error reading users.json:', error);
     return [];
   }
 }
 
-let products = readProductsFromFile();
+let users = readusersFromFile();
 
-// GET all products
-app.get('/products', (req, res) => {
-  // Read products from the JSON file
-  products = readProductsFromFile();
+// GET all users
+app.get('/users', (req, res) => {
+  // Read users from the JSON file
+  users = readusersFromFile();
 
-  // Return the products as a JSON response
-  res.json(products);
+  // Return the users as a JSON response
+  res.json(users);
 });
 
-// GET a specific product by ID
-app.get('/products/:id', (req, res) => {
-  const productId = parseInt(req.params.id, 10);
+// GET a specific user by ID
+app.get('/users/:id', (req, res) => {
+  const userId = parseInt(req.params.id, 10);
 
-  // Read products from the JSON file
-  products = readProductsFromFile();
+  // Read users from the JSON file
+  users = readusersFromFile();
 
-  // Find the product with the specified ID
-  const product = products.find((p) => p.id === productId);
+  // Find the user with the specified ID
+  const user = users.find((p) => p.id === userId);
 
-  if (product) {
-    // If the product is found, return it as a JSON response
-    res.json(product);
+  if (user) {
+    // If the user is found, return it as a JSON response
+    res.json(user);
   } else {
-    // If the product is not found, return a 404 error response
-    res.status(404).json({ error: 'Product not found' });
+    // If the user is not found, return a 404 error response
+    res.status(404).json({ error: 'user not found' });
   }
 });
 
-// POST - Create a new product
-app.post('/products', (req, res) => {
-  const newProduct = req.body;
+// POST - Create a new user
+app.post('/users', (req, res) => {
+  const newuser = req.body;
 
-  // Read products from the JSON file
-  products = readProductsFromFile();
+  // Read users from the JSON file
+  users = readusersFromFile();
 
-  // Calculate the next available product ID
-  const nextProductId = products.length > 0 ? products[products.length - 1].id + 1 : 1;
+  // Calculate the next available user ID
+  const nextuserId = users.length > 0 ? users[users.length - 1].id + 1 : 1;
 
-  newProduct.id = nextProductId;
+  newuser.id = nextuserId;
 
-  // Add the new product to the products array
-  products.push(newProduct);
+  // Add the new user to the users array
+  users.push(newuser);
 
-  // Save the updated products array to products.json
-  fs.writeFile('products.json', JSON.stringify(products, null, 2), 'utf8', (err) => {
+  // Save the updated users array to users.json
+  fs.writeFile('users.json', JSON.stringify(users, null, 2), 'utf8', (err) => {
     if (err) {
-      console.error('Error writing to products.json:', err);
+      console.error('Error writing to users.json:', err);
       res.status(500).json({ error: 'Internal Server Error' });
     } else {
-      // Return the created product with a 201 status code
-      res.status(201).json(newProduct);
+      // Return the created user with a 201 status code
+      res.status(201).json(newuser);
     }
   });
 });
 
 
-// PUT - Update an existing product by ID
-app.put('/products/:id', (req, res) => {
-    const productId = parseInt(req.params.id, 10);
-    const updatedProduct = req.body;
+// PUT - Update an existing user by ID
+app.put('/users/:id', (req, res) => {
+    const userId = parseInt(req.params.id, 10);
+    const updateduser = req.body;
   
-    // Read products from the JSON file
-    products = readProductsFromFile();
+    // Read users from the JSON file
+    users = readusersFromFile();
   
-    // Find the product with the specified ID
-    const existingProductIndex = products.findIndex((p) => p.id === productId);
+    // Find the user with the specified ID
+    const existinguserIndex = users.findIndex((p) => p.id === userId);
   
-    if (existingProductIndex !== -1) {
-      // Update the product details in the products array
-      products[existingProductIndex] = { id: productId, ...updatedProduct };
+    if (existinguserIndex !== -1) {
+      // Update the user details in the users array
+      users[existinguserIndex] = { id: userId, ...updateduser };
   
-      // Save the updated products array to products.json
-      fs.writeFile('products.json', JSON.stringify(products, null, 2), 'utf8', (err) => {
+      // Save the updated users array to users.json
+      fs.writeFile('users.json', JSON.stringify(users, null, 2), 'utf8', (err) => {
         if (err) {
-          console.error('Error writing to products.json:', err);
+          console.error('Error writing to users.json:', err);
           res.status(500).json({ error: 'Internal Server Error' });
         } else {
-          // Return the updated product with a 200 status code
-          res.status(200).json({ id: productId, ...updatedProduct });
+          // Return the updated user with a 200 status code
+          res.status(200).json({ id: userId, ...updateduser });
         }
       });
     } else {
-      // If the product is not found, return a 404 error response
-      res.status(404).json({ error: 'Product not found' });
+      // If the user is not found, return a 404 error response
+      res.status(404).json({ error: 'user not found' });
     }
   });
 
 
-// DELETE - Remove an existing product by ID
-app.delete('/products/:id', (req, res) => {
-    const productId = parseInt(req.params.id, 10);
+// DELETE - Remove an existing user by ID
+app.delete('/users/:id', (req, res) => {
+    const userId = parseInt(req.params.id, 10);
   
-    // Read products from the JSON file
-    products = readProductsFromFile();
+    // Read users from the JSON file
+    users = readusersFromFile();
   
-    // Find the product with the specified ID
-    const deletedProductIndex = products.findIndex((p) => p.id === productId);
+    // Find the user with the specified ID
+    const deleteduserIndex = users.findIndex((p) => p.id === userId);
   
-    if (deletedProductIndex !== -1) {
-      // Remove the product from the products array
-      const deletedProduct = products.splice(deletedProductIndex, 1)[0];
+    if (deleteduserIndex !== -1) {
+      // Remove the user from the users array
+      const deleteduser = users.splice(deleteduserIndex, 1)[0];
   
-      // Save the updated products array to products.json
-      fs.writeFile('products.json', JSON.stringify(products, null, 2), 'utf8', (err) => {
+      // Save the updated users array to users.json
+      fs.writeFile('users.json', JSON.stringify(users, null, 2), 'utf8', (err) => {
         if (err) {
-          console.error('Error writing to products.json:', err);
+          console.error('Error writing to users.json:', err);
           res.status(500).json({ error: 'Internal Server Error' });
         } else {
-          // Return the deleted product with a 200 status code
-          res.status(200).json(deletedProduct);
+          // Return the deleted user with a 200 status code
+          res.status(200).json(deleteduser);
         }
       });
     } else {
-      // If the product is not found, return a 404 error response
-      res.status(404).json({ error: 'Product not found' });
+      // If the user is not found, return a 404 error response
+      res.status(404).json({ error: 'user not found' });
     }
   });
 
