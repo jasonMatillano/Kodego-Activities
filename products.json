@@ -42,9 +42,9 @@
     "id": 8
   },
   {
-    "name": "Sample Product 9",
+    "id": 9,
+    "name": "Sample Product 99",
     "price": 19.99,
-    "description": "This is a sample product description.",
-    "id": 9
+    "description": "This is a sample product description."
   }
 ]
