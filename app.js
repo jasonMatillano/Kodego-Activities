@@ -27,25 +27,6 @@ let users = readusersFromFile();
 // Import controllers for CRUD operations
 const getUsersController = require('./controllers/user.controller');
 
-// GET a specific user by ID
-app.get('/users/:id', (req, res) => {
-    const userId = parseInt(req.params.id, 10);
-
-    // Read users from the JSON file
-    users = readusersFromFile();
-
-    // Find the user with the specified ID
-    const user = users.find((p) => p.id === userId);
-
-    if (user) {
-        // If the user is found, return it as a JSON response
-        res.json(user);
-    } else {
-        // If the user is not found, return a 404 error response
-        res.status(404).json({ error: 'user not found' });
-    }
-});
-
 // POST - Create a new user
 app.post('/users', (req, res) => {
   const newuser = req.body;
