@@ -1,9 +1,8 @@
 const express = require('express'); // Require the Express.js framework
-const fs = require('fs'); // Require the file sytem 'fs' module
-const cors = require('cors'); // Require the 'cors' middleware
-const userRouter = require('./routes/user.router'); // Import the user router from the routes/user.routes.js file
-
-const app = express();
+const fs = require('fs'); // Require the file sytem 'fs' module from the Express'./app_models/users.json'.js framework
+const cors = require('cors'); // Require the 'cors' middleware from the Express.js framework
+const userRouter = require('./app_routes/user.router'); // Require the user router from the app_routes/user.routes.js file
+const app = express(); // Create an instance of an Express application
 
 // Middleware to enable CORS
 app.use(cors());
@@ -14,7 +13,7 @@ app.use(express.json());
 // Function to read users from the JSON file
 function readusersFromFile() {
     try {
-        const data = fs.readFileSync('./models/users.json', 'utf8');
+        const data = fs.readFileSync('./app_models/users.json', 'utf8');
         return JSON.parse(data);
     } catch (error) {
         console.error('Error reading users.json:', error);
@@ -25,7 +24,7 @@ function readusersFromFile() {
 let users = readusersFromFile();
 
 // Import controllers for CRUD operations
-const getUsersController = require('./controllers/user.controller');
+const getUsersController = require('./app_controllers/user.controller');
 
 // POST - Create a new user
 app.post('/users', (req, res) => {
@@ -43,7 +42,7 @@ app.post('/users', (req, res) => {
   users.push(newuser);
 
   // Save the updated users array to users.json
-  fs.writeFile('./models/users.json', JSON.stringify(users, null, 2), 'utf8', (err) => {
+  fs.writeFile('./app_models/users.json', JSON.stringify(users, null, 2), 'utf8', (err) => {
         if (err) {
         console.error('Error writing to users.json:', err);
         res.status(500).json({ error: 'Internal Server Error' });
@@ -71,7 +70,7 @@ app.put('/users/:id', (req, res) => {
       users[existinguserIndex] = { id: userId, ...updateduser };
   
       // Save the updated users array to users.json
-      fs.writeFile('./models/users.json', JSON.stringify(users, null, 2), 'utf8', (err) => {
+      fs.writeFile('./app_models/users.json', JSON.stringify(users, null, 2), 'utf8', (err) => {
         if (err) {
           console.error('Error writing to users.json:', err);
           res.status(500).json({ error: 'Internal Server Error' });
@@ -102,7 +101,7 @@ app.delete('/users/:id', (req, res) => {
       const deleteduser = users.splice(deleteduserIndex, 1)[0];
   
       // Save the updated users array to users.json
-      fs.writeFile('./models/users.json', JSON.stringify(users, null, 2), 'utf8', (err) => {
+      fs.writeFile('./app_models/users.json', JSON.stringify(users, null, 2), 'utf8', (err) => {
         if (err) {
           console.error('Error writing to users.json:', err);
           res.status(500).json({ error: 'Internal Server Error' });

@@ -4,7 +4,7 @@ const cors = require('cors'); // Require the 'cors' middleware
 
 
 // Define the path to the users.json file
-const usersFilePath = `./models/users.json`;
+const usersFilePath = `./app_models/users.json`;
 
 // READ all users using router.get('/readusers', userControllers.read);
 read = (req, res) => {
@@ -67,7 +67,7 @@ readById = (req, res) => {
 };
 
 
-// Export the 'read' function to be used as a controller for the '/readusers' route
+// Export the read and readById functions
 module.exports = {
     read,
     readById
