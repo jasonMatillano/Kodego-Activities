@@ -1,6 +1,8 @@
-const express = require('express');
-const fs = require('fs');
+const express = require('express'); // Require the Express.js framework
+const fs = require('fs'); // Require the file sytem 'fs' module
 const cors = require('cors'); // Require the 'cors' middleware
+
+
 
 const app = express();
 
@@ -12,13 +14,13 @@ app.use(express.json());
 
 // Function to read users from the JSON file
 function readusersFromFile() {
-  try {
-    const data = fs.readFileSync('./models/users.json', 'utf8');
-    return JSON.parse(data);
-  } catch (error) {
-    console.error('Error reading users.json:', error);
-    return [];
-  }
+    try {
+        const data = fs.readFileSync('./models/users.json', 'utf8');
+        return JSON.parse(data);
+    } catch (error) {
+        console.error('Error reading users.json:', error);
+        return [];
+    }
 }
 
 let users = readusersFromFile();
@@ -28,30 +30,30 @@ const getUsersController = require('./controllers/user.controller');
 
 // GET all users
 app.get('/users', (req, res) => {
-  // Read users from the JSON file
-  users = readusersFromFile();
+    // Read users from the JSON file
+    users = readusersFromFile();
 
-  // Return the users as a JSON response
-  res.json(users);
+    // Return the users as a JSON response
+    res.json(users);
 });
 
 // GET a specific user by ID
 app.get('/users/:id', (req, res) => {
-  const userId = parseInt(req.params.id, 10);
+    const userId = parseInt(req.params.id, 10);
 
-  // Read users from the JSON file
-  users = readusersFromFile();
+    // Read users from the JSON file
+    users = readusersFromFile();
 
-  // Find the user with the specified ID
-  const user = users.find((p) => p.id === userId);
+    // Find the user with the specified ID
+    const user = users.find((p) => p.id === userId);
 
-  if (user) {
-    // If the user is found, return it as a JSON response
-    res.json(user);
-  } else {
-    // If the user is not found, return a 404 error response
-    res.status(404).json({ error: 'user not found' });
-  }
+    if (user) {
+        // If the user is found, return it as a JSON response
+        res.json(user);
+    } else {
+        // If the user is not found, return a 404 error response
+        res.status(404).json({ error: 'user not found' });
+    }
 });
 
 // POST - Create a new user
@@ -71,14 +73,14 @@ app.post('/users', (req, res) => {
 
   // Save the updated users array to users.json
   fs.writeFile('./models/users.json', JSON.stringify(users, null, 2), 'utf8', (err) => {
-    if (err) {
-      console.error('Error writing to users.json:', err);
-      res.status(500).json({ error: 'Internal Server Error' });
-    } else {
-      // Return the created user with a 201 status code
-      res.status(201).json(newuser);
-    }
-  });
+        if (err) {
+        console.error('Error writing to users.json:', err);
+        res.status(500).json({ error: 'Internal Server Error' });
+        } else {
+        // Return the created user with a 201 status code
+        res.status(201).json(newuser);
+        }
+    });
 });
 
 
@@ -111,7 +113,7 @@ app.put('/users/:id', (req, res) => {
       // If the user is not found, return a 404 error response
       res.status(404).json({ error: 'user not found' });
     }
-  });
+});
 
 
 // DELETE - Remove an existing user by ID
@@ -142,6 +144,10 @@ app.delete('/users/:id', (req, res) => {
       // If the user is not found, return a 404 error response
       res.status(404).json({ error: 'user not found' });
     }
-  });
+});
 
-  module.exports = app;
+
+
+
+// Export the app instance to make it available for use in other parts of the application
+module.exports = app;
