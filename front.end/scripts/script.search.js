@@ -75,13 +75,6 @@ searchButton.addEventListener("click", () => {
             }
             return response.json();
         })
-        .then((user) => {
-            // Fill the input fields with the retrieved user data
-            inputFields.forEach((input) => {
-                const fieldName = input.id.replace("-input", ""); // Extract the field name from the input ID
-                input.value = user[fieldName] || ''; // Set the input value from the retrieved data
-            });
-        })
         .catch((error) => {
             console.error('Error fetching user data:', error);
         });

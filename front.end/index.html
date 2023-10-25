@@ -33,8 +33,31 @@
     <main class="container">
         <div class="todo-container bg-white p-4 shadow rounded">
             <div class="input-container mb-3">
-                <button id="toggle-add-user" class="btn btn-success">Add User</button>
+
+                <!-- Add-User and Search by ID Feature -->
+                <div class="input-container mb-3">
+                    <div class="row">
+                        <div class="col-md-4"> 
+                            <button id="toggle-add-user" class="btn btn-success">Add User</button>
+                        </div>
+                        <div class="col-md-4"> 
+                            <!-- space -->
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <span>
+                                    <button id="search-button" class="btn btn-secondary">Search</button>
+                                </span> 
+                                <span>
+                                    <input type="text" id="search-input" class="form-control" placeholder="Search ID">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- Add User Form Section-->
             <div id="add-user-form" class="input-container mb-3" style="display: none;">
                 <!-- Input fields and buttons use Bootstrap classes -->
                 <input type="text" id="id-input" class="form-control mb-2" placeholder="ID" disabled>
@@ -44,12 +67,6 @@
                 <div class="mb-3">
                     <button id="add-user" class="btn btn-primary">Add Now</button>
                     <button id="update-user" class="btn btn-secondary">Update Now</button>
-                </div>
-                
-                <!-- Search by ID Feature -->
-                <div class="input-container">
-                    <input type="text" id="search-input" class="form-control" placeholder="Search ID">
-                    <button id="search-button" class="btn btn-secondary">Search</button>
                 </div>
             </div>
 
