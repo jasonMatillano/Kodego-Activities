@@ -30,22 +30,3 @@ searchButton.addEventListener("click", () => {
         });
 });
 
-// Get references to input fields in the input-container
-const inputFields = document.querySelectorAll(".input-container input[type='text']");
-
-// Add a click event listener to the "Search" button
-searchButton.addEventListener("click", () => {
-    const searchText = searchInput.value.toLowerCase(); // Get the search text and convert to lowercase for case-insensitive search
-
-    // Send a GET request to retrieve user data based on the search text
-    fetch(`http://localhost:3030/users/${searchText}`)
-        .then((response) => {
-            if (!response.ok) {
-                throw Error('Failed to fetch data');
-            }
-            return response.json();
-        })
-        .catch((error) => {
-            console.error('Error fetching user data:', error);
-        });
-});
