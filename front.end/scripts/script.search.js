@@ -7,10 +7,10 @@ const userTableBody = document.querySelector("#user-table tbody");
 
 // Add a click event listener to the "Search" button
 searchButton.addEventListener("click", () => {
-    const searchText = searchInput.value.toLowerCase(); // Get the search text and convert to lowercase for case-insensitive search
+    const searchId = searchInput.value.toLowerCase(); // Get the search text and convert to lowercase for case-insensitive search
 
     // Send a GET request to retrieve user data based on the search text
-    fetch(`http://localhost:3030/users/${searchText}`)
+    fetch(`http://localhost:3030/users/${searchId}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error('Failed to fetch data');
@@ -21,7 +21,7 @@ searchButton.addEventListener("click", () => {
             // Clear the existing table rows
             userTableBody.innerHTML = '';
 
-            // Add the retrieved user data to the table then Use the fillRow function to create the row
+            // Use the fillRow function from scripts/script.fill.table.row.js to create the rows
             const row = fillRow(user); 
             userTableBody.appendChild(row);
         })

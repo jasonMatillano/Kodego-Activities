@@ -18,7 +18,7 @@ async function fetchUserData() {
 
 
         data.forEach((user) => {
-            // Use the fillRow function to create the rows
+            // Use the fillRow function from scripts/script.fill.table.row.js to create the rows
             const row = fillRow(user); 
             tbody.appendChild(row);
         });
