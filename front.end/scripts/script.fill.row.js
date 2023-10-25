@@ -12,28 +12,34 @@ function fillRow(user) {
         </td>
     `;
   
-    // Add a click event listener to the "Delete" button
+    // Add a click event listener to the "Delete" button for the user row
     const deleteButton = row.querySelector(`#delete-user-${user.id}`);
     deleteButton.addEventListener("click", async () => {
         const userId = user.id;
-  
-        // Make a DELETE request to remove the user with the specified ID
+
+        // Attempt to delete the user by sending a DELETE request to the server.
         try {
+            // Send a DELETE request to the server to remove the user with the specified ID.
             const deleteResponse = await fetch(`http://localhost:3030/users/${userId}`, {
                 method: 'DELETE',
             });
-  
+
+            // Check if the DELETE request was successful (HTTP status code 200).
             if (deleteResponse.ok) {
-                console.log(`User with ID ${userId} has been deleted.`);
-                // Remove the row from the table
+                // Log a success message to the console.
+                console.log(`User with ID ${userId} has been successfully deleted.`);
+                // Remove the corresponding row from the table.
                 row.remove();
             } else {
+                // Log an error message if the DELETE request was not successful.
                 console.error(`Failed to delete user with ID ${userId}.`);
             }
         } catch (error) {
+            // Handle any unexpected errors that may occur during the DELETE request.
             console.error('Error deleting user:', error);
         }
     });
+
   
     // Add a click event listener to the "Update" button
     const updateButton = row.querySelector(`#update-user-${user.id}`);
