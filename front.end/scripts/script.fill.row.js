@@ -38,12 +38,23 @@ function fillRow(user) {
     // Add a click event listener to the "Update" button
     const updateButton = row.querySelector(`#update-user-${user.id}`);
     updateButton.addEventListener("click", () => {
-        // Alert a message when the "Update" button is clicked
-        // alert(`Update button clicked for user ID: ${user.id}`);
+        // Populate the modal input fields with user data
+        const modal = document.getElementById("updateUserModal");
+        const userId = modal.querySelector("#update-id");
+        const usernameInput = modal.querySelector("#update-username");
+        const passwordInput = modal.querySelector("#update-password");
+        const emailInput = modal.querySelector("#update-email");
+
+        // Set the input field values with the user's data
+        userId.value = user.id;
+        usernameInput.value = user.username;
+        passwordInput.value = user.password;
+        emailInput.value = user.email;
+
         // Open the modal
         $('#updateUserModal').modal('show');
     });
-    
+
     return row;
   }
   
