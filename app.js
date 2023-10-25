@@ -24,7 +24,7 @@ function readusersFromFile() {
 let users = readusersFromFile();
 
 // Import controllers for CRUD operations
-const getUsersController = require('./controllers/get.users');
+const getUsersController = require('./controllers/user.controller');
 
 // GET all users
 app.get('/users', (req, res) => {

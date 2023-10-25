@@ -1,5 +1,5 @@
-// // Import the 'app' module which represents your Express.js application.
-// const app = require(`./app.js`);
+// Import the 'app' module which represents your Express.js application.
+const app = require(`../app.js`);
 
 // // GET all users
 // app.get('/users', (req, res) => {
@@ -8,10 +8,10 @@
   
 //     // Return the users as a JSON response
 //     res.json(users);
-//   });
+// });
   
-//   // GET a specific user by ID
-//   app.get('/users/:id', (req, res) => {
+// // GET a specific user by ID
+// app.get('/users/:id', (req, res) => {
 //     const userId = parseInt(req.params.id, 10);
   
 //     // Read users from the JSON file
@@ -27,5 +27,5 @@
 //       // If the user is not found, return a 404 error response
 //       res.status(404).json({ error: 'user not found' });
 //     }
-//   });
+// });
 
