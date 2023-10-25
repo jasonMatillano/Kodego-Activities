@@ -39,9 +39,11 @@ function fillRow(user) {
     const updateButton = row.querySelector(`#update-user-${user.id}`);
     updateButton.addEventListener("click", () => {
         // Alert a message when the "Update" button is clicked
-        alert(`Update button clicked for user ID: ${user.id}`);
+        // alert(`Update button clicked for user ID: ${user.id}`);
+        // Open the modal
+        $('#updateUserModal').modal('show');
     });
-  
+    
     return row;
   }
   
