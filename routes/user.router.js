@@ -1,10 +1,14 @@
+// Import the Express.js framework
 const express = require('express');
 
-const controllers = require('./controllers/user.controller.js');
+// Import the user controller module
+const userControllers = require('./controllers/user.controller.js');
 
+// Create an instance of an Express router
 const router = express.Router();
 
-router.get('/users', controllers.getUsers);
-router.get('/users/:id', controllers.getUser);
+// Define a GET route at the path '/readusers' and link it to the 'read' function from the 'userControllers' module
+router.get('/readusers', userControllers.read);
 
-module.exports = router; 
+// Export the router instance to make it available for use in other parts of the application
+module.exports = router;

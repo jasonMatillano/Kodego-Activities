@@ -1,31 +1,33 @@
 // Import the 'app' module which represents your Express.js application.
 const app = require(`../app.js`);
+const fs = require('fs'); // Import the 'fs' module
 
-// // GET all users
-// app.get('/users', (req, res) => {
-//     // Read users from the JSON file
-//     users = readusersFromFile();
-  
-//     // Return the users as a JSON response
-//     res.json(users);
-// });
-  
-// // GET a specific user by ID
-// app.get('/users/:id', (req, res) => {
-//     const userId = parseInt(req.params.id, 10);
-  
-//     // Read users from the JSON file
-//     users = readusersFromFile();
-  
-//     // Find the user with the specified ID
-//     const user = users.find((p) => p.id === userId);
-  
-//     if (user) {
-//       // If the user is found, return it as a JSON response
-//       res.json(user);
-//     } else {
-//       // If the user is not found, return a 404 error response
-//       res.status(404).json({ error: 'user not found' });
-//     }
-// });
+// Define the path to the users.json file
+const usersFilePath = `${__dirname}/users.json`;
 
+// READ all users using router.get('/readusers', userControllers.read);
+read = (req, res) => {
+    try {
+        // Read users from the JSON file
+        fs.readFile(usersFilePath, 'utf8', (err, data) => {
+            if (err) {
+                console.error('Error reading users data:', err);
+                res.status(500).json({ error: 'Internal Server Error' });
+                return;
+            }
+            
+            // Parse the JSON data to get an array of user objects
+            const users = JSON.parse(data);
+            
+            // Send the user data as a JSON response
+            res.status(200).json(users);
+        });
+    } catch (error) {
+        console.error('Error reading users data:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
+module.exports = {
+    read
+}
