@@ -17,26 +17,29 @@ searchButton.addEventListener("click", () => {
             }
             return response.json();
         })
-        .then((userData) => {
+        .then((user) => {
             // Clear the existing table rows
             userTableBody.innerHTML = '';
 
             // Add the retrieved user data to the table
             const row = document.createElement("tr");
             row.innerHTML = `
-                <td>${userData.id}</td>
-                <td>${userData.username}</td>
-                <td>${userData.password}</td>
-                <td>${userData.email}</td>
-                <td><button id="delete-user-${userData.id}" class="btn btn-danger">Delete</button></td>
+                <td>${user.id}</td>
+                <td>${user.username}</td>
+                <td>${user.password}</td>
+                <td>${user.email}</td>
+                <td>
+                    <button id="delete-user-${user.id}" class="btn btn-danger">Delete</button>
+                    <button id="toggle-form-button" class="btn btn-secondary">Update</button>
+                </td>
             `;
             userTableBody.appendChild(row);
 
             // Add a click event listener to the "Delete" button
-            const deleteButton = row.querySelector(`#delete-user-${userData.id}`);
+            const deleteButton = row.querySelector(`#delete-user-${user.id}`);
             deleteButton.addEventListener("click", () => {
                 // Trigger the DELETE request when the "Delete" button is clicked
-                fetch(`http://localhost:3030/users/${userData.id}`, {
+                fetch(`http://localhost:3030/users/${user.id}`, {
                     method: "DELETE",
                 })
                     .then((response) => {
@@ -72,11 +75,11 @@ searchButton.addEventListener("click", () => {
             }
             return response.json();
         })
-        .then((userData) => {
+        .then((user) => {
             // Fill the input fields with the retrieved user data
             inputFields.forEach((input) => {
                 const fieldName = input.id.replace("-input", ""); // Extract the field name from the input ID
-                input.value = userData[fieldName] || ''; // Set the input value from the retrieved data
+                input.value = user[fieldName] || ''; // Set the input value from the retrieved data
             });
         })
         .catch((error) => {

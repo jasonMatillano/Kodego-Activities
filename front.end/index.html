@@ -32,15 +32,18 @@
     
     <main class="container">
         <div class="todo-container bg-white p-4 shadow rounded">
-            <div class="input-container mb-3">
+            <div class="input-container">
+                <button id="toggle-form-button" class="btn btn-success">Add User</button>
+            </div>
+            <div id="add-user-form" class="input-container mb-3">
                 <!-- Input fields and buttons use Bootstrap classes -->
                 <input type="text" id="id-input" class="form-control mb-2" placeholder="ID" disabled>
                 <input type="text" id="username-input" class="form-control mb-2" placeholder="Username">
                 <input type="text" id="password-input" class="form-control mb-2" placeholder="Password">
                 <input type="text" id="email-input" class="form-control mb-2" placeholder="Email">
                 <div class="mb-3">
-                    <button id="add-user" class="btn btn-primary">Add User</button>
-                    <button id="update-user" class="btn btn-secondary">Update User</button>
+                    <button id="add-user" class="btn btn-primary">Add Now</button>
+                    <button id="update-user" class="btn btn-secondary">Update Now</button>
                 </div>
                 
                 <!-- Search by ID Feature -->
@@ -57,7 +60,7 @@
                         <th>Username</th>
                         <th>Password</th>
                         <th>Email</th>
-                        <th>Remove?</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>

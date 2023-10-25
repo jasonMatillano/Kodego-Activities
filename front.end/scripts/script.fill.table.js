@@ -16,7 +16,10 @@ async function fetchUserData() {
         <td>${user.username}</td>
         <td>${user.password}</td>
         <td>${user.email}</td>
-        <td><button id="delete-user-${user.id}" class="btn btn-danger">Delete</button></td>
+        <td>
+          <button id="delete-user-${user.id}" class="btn btn-danger">Delete</button>
+          <button id="toggle-form-button" class="btn btn-secondary">Update</button>
+        </td>
       `;
       tbody.appendChild(row);
 
