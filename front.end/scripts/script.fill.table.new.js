@@ -1,4 +1,4 @@
-// Rest of your code
+// Get reference to the user table tbody
 const userTable = document.getElementById("user-table");
 const tbody = userTable.querySelector("tbody");
 
@@ -18,7 +18,8 @@ async function fetchUserData() {
 
 
         data.forEach((user) => {
-            const row = fillRow(user); // Use the fillRow function to create the row
+            // Use the fillRow function to create the rows
+            const row = fillRow(user); 
             tbody.appendChild(row);
         });
     } catch (error) {
