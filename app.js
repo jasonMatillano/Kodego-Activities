@@ -1,8 +1,7 @@
 const express = require('express'); // Require the Express.js framework
 const fs = require('fs'); // Require the file sytem 'fs' module
 const cors = require('cors'); // Require the 'cors' middleware
-
-
+const userRouter = require('./routes/user.router'); // Import the user router from the routes/user.routes.js file
 
 const app = express();
 
@@ -27,15 +26,6 @@ let users = readusersFromFile();
 
 // Import controllers for CRUD operations
 const getUsersController = require('./controllers/user.controller');
-
-// GET all users
-app.get('/users', (req, res) => {
-    // Read users from the JSON file
-    users = readusersFromFile();
-
-    // Return the users as a JSON response
-    res.json(users);
-});
 
 // GET a specific user by ID
 app.get('/users/:id', (req, res) => {
@@ -146,7 +136,8 @@ app.delete('/users/:id', (req, res) => {
     }
 });
 
-
+// Mount the user router at '/user'
+app.use('/', userRouter);
 
 
 // Export the app instance to make it available for use in other parts of the application
