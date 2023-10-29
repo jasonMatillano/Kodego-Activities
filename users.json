@@ -1,9 +1,13 @@
 [
   {
     "id": 1,
-    "username": "user1",
+    "firstName": "JohnNew",
+    "lastName": "Doe",
     "password": "password1",
-    "email": "user1@example.com"
+    "email": "johndoe@gmail.com",
+    "phoneNumber": "09123456789",
+    "birthday": "01/31/2023",
+    "gender": "male"
   },
   {
     "id": 2,

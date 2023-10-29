@@ -1,9 +1,8 @@
-const express = require('express');
-const fs = require('fs');
-const cors = require('cors'); // Require the 'cors' middleware
+const express = require('express'); // Import the 'express' module
+const app = express(); // Create an instance of the Express application
 
-const app = express();
-const port = 3030;
+const fs = require('fs'); // Import the 'fs' module for file system operations
+const cors = require('cors'); // Require the 'cors' middleware
 
 // Middleware to enable CORS
 app.use(cors());
@@ -79,7 +78,6 @@ app.post('/users', (req, res) => {
   });
 });
 
-
 // PUT - Update an existing user by ID
 app.put('/users/:id', (req, res) => {
     const userId = parseInt(req.params.id, 10);
@@ -111,7 +109,6 @@ app.put('/users/:id', (req, res) => {
     }
   });
 
-
 // DELETE - Remove an existing user by ID
 app.delete('/users/:id', (req, res) => {
     const userId = parseInt(req.params.id, 10);
@@ -142,6 +139,7 @@ app.delete('/users/:id', (req, res) => {
     }
   });
 
+const port = 3030;
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}/`);
