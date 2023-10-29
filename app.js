@@ -1,14 +1,18 @@
+// Define file type and functionality 
 const express = require('express'); // Require the Express.js framework
-const fs = require('fs'); // Require the file sytem 'fs' module from the Express'./app_models/users.json'.js framework
-const cors = require('cors'); // Require the 'cors' middleware from the Express.js framework
-const userRouter = require('./app_routes/user.router'); // Require the user router from the app_routes/user.routes.js file
 const app = express(); // Create an instance of an Express application
 
-// Middleware to enable CORS
-app.use(cors());
+// Require the needed depensencies
+const fs = require('fs'); // Require the file sytem 'fs' module from the Express'./app_models/users.json'.js framework
+const cors = require('cors'); // Require the 'cors' middleware from the Express.js framework
 
-// Middleware to parse JSON in request bodies
-app.use(express.json());
+// Define the express middleware used for the application
+app.use(cors()); // Middleware to enable CORS
+app.use(express.json()); // Middleware to parse JSON in request bodies
+
+// Mount user route from app_routes/user.router
+const userRouter = require('./app_routes/user.router'); // Require the user router from the app_routes/user.routes.js file
+app.use('/', userRouter); // Mount the user router at '/user'
 
 // Function to read users from the JSON file
 function readusersFromFile() {
@@ -22,9 +26,6 @@ function readusersFromFile() {
 }
 
 let users = readusersFromFile();
-
-// Import controllers for CRUD operations
-const getUsersController = require('./app_controllers/user.controller');
 
 // POST - Create a new user
 app.post('/users', (req, res) => {
@@ -116,8 +117,7 @@ app.delete('/users/:id', (req, res) => {
     }
 });
 
-// Mount the user router at '/user'
-app.use('/', userRouter);
+
 
 
 // Export the app instance to make it available for use in other parts of the application

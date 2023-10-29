@@ -1,7 +1,5 @@
 const app = require(`../app.js`); // Import the 'app' module which represents your Express.js application.
 const fs = require('fs'); // Require the file sytem 'fs' module
-const cors = require('cors'); // Require the 'cors' middleware
-
 
 // Define the path to the users.json file
 const usersFilePath = `./app_models/users.json`;
