@@ -1,31 +1,57 @@
-// Define file type and functionality 
-const express = require('express'); // Require the Express.js framework
-const app = express(); // Create an instance of an Express application
+const express = require('express');
+const app = express(); // Change app to express
 
-// Require the needed depensencies
-const fs = require('fs'); // Require the file sytem 'fs' module from the Express'./app_models/users.json'.js framework
-const cors = require('cors'); // Require the 'cors' middleware from the Express.js framework
+app.use(express.json());
 
-// Define the express middleware used for the application
-app.use(cors()); // Middleware to enable CORS
-app.use(express.json()); // Middleware to parse JSON in request bodies
+const fs = require('fs');
+const cors = require('cors'); // Require the 'cors' middleware
 
-// Mount user route from app_routes/user.router
-const userRouter = require('./app_routes/user.router'); // Require the user router from the app_routes/user.routes.js file
-app.use('/', userRouter); // Mount the user router at '/user'
+// Middleware to enable CORS
+app.use(cors());
+
+// Middleware to parse JSON in request bodies
+app.use(express.json());
 
 // Function to read users from the JSON file
 function readusersFromFile() {
-    try {
-        const data = fs.readFileSync('./app_models/users.json', 'utf8');
-        return JSON.parse(data);
-    } catch (error) {
-        console.error('Error reading users.json:', error);
-        return [];
-    }
+  try {
+    const data = fs.readFileSync('./app.models/users.json', 'utf8');
+    return JSON.parse(data);
+  } catch (error) {
+    console.error('Error reading ./app.models/users.json:', error);
+    return [];
+  }
 }
 
 let users = readusersFromFile();
+
+// GET all users
+app.get('/users', (req, res) => {
+  // Read users from the JSON file
+  users = readusersFromFile();
+
+  // Return the users as a JSON response
+  res.json(users);
+});
+
+// GET a specific user by ID
+app.get('/users/:id', (req, res) => {
+  const userId = parseInt(req.params.id, 10);
+
+  // Read users from the JSON file
+  users = readusersFromFile();
+
+  // Find the user with the specified ID
+  const user = users.find((p) => p.id === userId);
+
+  if (user) {
+    // If the user is found, return it as a JSON response
+    res.json(user);
+  } else {
+    // If the user is not found, return a 404 error response
+    res.status(404).json({ error: 'user not found' });
+  }
+});
 
 // POST - Create a new user
 app.post('/users', (req, res) => {
@@ -42,16 +68,16 @@ app.post('/users', (req, res) => {
   // Add the new user to the users array
   users.push(newuser);
 
-  // Save the updated users array to users.json
-  fs.writeFile('./app_models/users.json', JSON.stringify(users, null, 2), 'utf8', (err) => {
-        if (err) {
-        console.error('Error writing to users.json:', err);
-        res.status(500).json({ error: 'Internal Server Error' });
-        } else {
-        // Return the created user with a 201 status code
-        res.status(201).json(newuser);
-        }
-    });
+  // Save the updated users array to ./app.models/users.json
+  fs.writeFile('./app.models/users.json', JSON.stringify(users, null, 2), 'utf8', (err) => {
+    if (err) {
+      console.error('Error writing to ./app.models/users.json:', err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else {
+      // Return the created user with a 201 status code
+      res.status(201).json(newuser);
+    }
+  });
 });
 
 
@@ -70,10 +96,10 @@ app.put('/users/:id', (req, res) => {
       // Update the user details in the users array
       users[existinguserIndex] = { id: userId, ...updateduser };
   
-      // Save the updated users array to users.json
-      fs.writeFile('./app_models/users.json', JSON.stringify(users, null, 2), 'utf8', (err) => {
+      // Save the updated users array to ./app.models/users.json
+      fs.writeFile('./app.models/users.json', JSON.stringify(users, null, 2), 'utf8', (err) => {
         if (err) {
-          console.error('Error writing to users.json:', err);
+          console.error('Error writing to ./app.models/users.json:', err);
           res.status(500).json({ error: 'Internal Server Error' });
         } else {
           // Return the updated user with a 200 status code
@@ -101,10 +127,10 @@ app.delete('/users/:id', (req, res) => {
       // Remove the user from the users array
       const deleteduser = users.splice(deleteduserIndex, 1)[0];
   
-      // Save the updated users array to users.json
-      fs.writeFile('./app_models/users.json', JSON.stringify(users, null, 2), 'utf8', (err) => {
+      // Save the updated users array to ./app.models/users.json
+      fs.writeFile('./app.models/users.json', JSON.stringify(users, null, 2), 'utf8', (err) => {
         if (err) {
-          console.error('Error writing to users.json:', err);
+          console.error('Error writing to ./app.models/users.json:', err);
           res.status(500).json({ error: 'Internal Server Error' });
         } else {
           // Return the deleted user with a 200 status code
@@ -117,8 +143,4 @@ app.delete('/users/:id', (req, res) => {
     }
 });
 
-
-
-
-// Export the app instance to make it available for use in other parts of the application
-module.exports = app;
+module.exports = app; 

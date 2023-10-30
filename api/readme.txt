@@ -40,6 +40,8 @@ Usage:
 
 5. The server will listen on http://localhost:3030/ by default.
 
+6. To start the server in development mode using Nodemon, run: `npm run devstart`
+
 API Endpoints:
 --------------
 
