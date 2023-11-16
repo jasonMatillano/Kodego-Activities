@@ -1,17 +1,18 @@
 {
   "name": "frontend_user_management",
   "version": "1.0.0",
-  "description": "Server for front end",
-  "main": "frontend.server.js",
+  "description": "frontend for user management",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node frontend.server.js",
-    "devstart": "nodemon frontend.server.js"
+    "start": "node server.js",
+    "devstart": "nodemon my-app-server-wahahaha"
   },
-  "author": "Your Name",
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

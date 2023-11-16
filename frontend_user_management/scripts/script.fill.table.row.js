@@ -3,7 +3,8 @@ function fillRow(user) {
     const row = document.createElement("tr");
     row.innerHTML = `
         <td>${user.id}</td>
-        <td>${user.username}</td>
+        <td>${user.firstName}</td>
+        <td>${user.lastName}</td>
         <td>${user.password}</td>
         <td>${user.email}</td>
         <td>
@@ -47,13 +48,15 @@ function fillRow(user) {
         // Populate the modal input fields with user data
         const modal = document.getElementById("updateUserModal");
         const userId = modal.querySelector("#update-id");
-        const usernameInput = modal.querySelector("#update-username");
+        const firstnameInput = modal.querySelector("#update-firstname");
+        const lastnameInput = modal.querySelector("#update-lastname");
         const passwordInput = modal.querySelector("#update-password");
         const emailInput = modal.querySelector("#update-email");
 
         // Set the input field values with the user's data
         userId.value = user.id;
-        usernameInput.value = user.username;
+        firstnameInput.value = user.firstName;
+        lastnameInput.value = user.lastName;
         passwordInput.value = user.password;
         emailInput.value = user.email;
 

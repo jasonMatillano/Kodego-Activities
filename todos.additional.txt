@@ -1,0 +1,32 @@
+I. Use params ID to pass ID to the new page
+
+III. Use the following flow for login sign-update
+	1. shopping_cart > login > signup with number 
+
+V. Add modal when account profile is clicked ccontaining: 
+	1 user
+	2 change user
+	3 logout 
+
+VI. PRIORITY: In shopping_cart.html add fucntion to 
+	1. Onload, get data and value from shopping_cart.json
+	2. CONTINUE SHOPPING btn
+		a. when clicked btn, redirect to shop grid 
+		b. do not update data in json file
+	3. make independent cart-items for shopping_cart
+
+VI. PRIORITY: In checkout.html 
+	1. Onload, get data and value from shopping_cart.json to populate Your_Order Section, 
+	2. Add Proper Validation for Billing 
+	3. Tag name of user in the billing
+	4. ON PLACE ORDER BTN Click, 
+		a. check if fields are property filled in
+		b. modal will pop-up: 
+			1. if fields are not properly filled in
+				a. show promt to fill the fields again 
+			2. if fields are properly filled in
+				b. modal will pop-up containing order with 
+					1. close btn
+					2. confirm order btn, and successfull order promt
+
+

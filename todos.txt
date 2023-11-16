@@ -1,0 +1,41 @@
+II. Add cart-btn function in index.html navbar 
+*** Route to shopping-favorite.html
+	1. Edit the value of anchor tag of cart-btn in navbar of index.html
+*** Edit shopping-favorite.html page
+	1. Correct data to be used form shopping_cart.json file
+	2. Use data from shopping_cart.json to populate the shopping-favorite.html
+	3. Add property ( qauntity : vlue ) in shopping_cart.json 
+
+III. Add favorite-btn function in index.html navbar 
+*** Route to shopping-favorite.html
+	1. Edit the value of anchor tag of favorite-btn in navbar of index.html
+*** Edit shopping-favorite.html page
+	1. Correct data to be used form products.json file
+	2. Use data from products.json to fill the page
+	3. Add favorite key in products.json file 
+	4. Use filter (favorite = yes) to populate the shopping-favorite.html
+
+IV. Edit shop-details.html Page
+*** Update products.json model 
+	1. add keys : 
+		details , 
+		ratings (1 to 5) , 
+		reviews (number of users who review the product)
+*** Update shopping_cart.json model, use products.json keys then 
+	1. add keys : 
+		availability (yes, no),
+		quantity (1 to 100)
+
+VI. Scripts for repetitive elements:
+*** JS Scripts - Create Elements
+	1. Top Rated Products
+	2. Review Products
+	3. Sale Section - Shop Grid
+
+VII. Edit Header and Footer
+*** checkout
+*** Add to cart
+*** Blog details
+
+VIII. Deletion of Favorites Icon and Anchors
+	 

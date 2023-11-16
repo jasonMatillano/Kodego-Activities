@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Radiant Glow Serum",
+    "price": 899.5,
+    "description": "Description 1",
+    "category": "skincare",
+    "image": "product-15.jpg",
+    "latest": "",
+    "quantity": 2
+  },
+  {
+    "id": 2,
+    "name": "Revitalizing Wellness Cream",
+    "price": 699.99,
+    "description": "Description 2",
+    "category": "skincare",
+    "image": "product-19.jpg",
+    "latest": "",
+    "quantity": 2
+  },
+  {
+    "id": 3,
+    "name": "Moisturizing Hair Serum",
+    "price": 349.99,
+    "description": "Description 3",
+    "category": "haircare",
+    "image": "product-3.jpg",
+    "latest": "",
+    "quantity": 2
+  },
+  {
+    "id": 4,
+    "name": "Natural Organic Sunscreen",
+    "price": 299.99,
+    "description": "Description 6",
+    "category": "makeup",
+    "image": "product-6.jpg",
+    "latest": "yes",
+    "quantity": 2
+  }
+]

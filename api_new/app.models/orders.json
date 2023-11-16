@@ -1,0 +1,55 @@
+[
+  {
+    "id": 1,
+    "firstName": "Mark",
+    "lastName": "Tupas",
+    "address": "First Street, Brgy. 9, Maragondon City",
+    "province": "Mindoro Province",
+    "city": "Cavite City",
+    "postalCodeZIP": "4100",
+    "phone": "09615123456",
+    "email": "mark_tupaz@gmail.com",
+    "orders": [
+      {
+        "id": 1,
+        "name": "Radiant Glow Serum",
+        "price": 899.5,
+        "description": "Description 1",
+        "category": "skincare",
+        "image": "product-15.jpg",
+        "latest": "",
+        "quantity": 8
+      },
+      {
+        "id": 2,
+        "name": "Revitalizing Wellness Cream",
+        "price": 699.99,
+        "description": "Description 2",
+        "category": "skincare",
+        "image": "product-19.jpg",
+        "latest": "",
+        "quantity": 8
+      },
+      {
+        "id": 3,
+        "name": "Moisturizing Hair Serum",
+        "price": 349.99,
+        "description": "Description 3",
+        "category": "haircare",
+        "image": "product-3.jpg",
+        "latest": "",
+        "quantity": 10
+      },
+      {
+        "id": 4,
+        "name": "Spot Eraser Ampoule",
+        "price": 179.99,
+        "description": "Description 16",
+        "category": "naturals-organics",
+        "image": "product-12.jpg",
+        "latest": "no",
+        "quantity": 8
+      }
+    ]
+  }
+]

@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "name": "Radiant Glow Serum",
+    "price": 899.5,
+    "description": "Description 1",
+    "category": "skincare",
+    "image": "product-15.jpg",
+    "latest": ""
+  },
+  {
+    "id": 2,
+    "name": "Revitalizing Wellness Cream",
+    "price": 699.99,
+    "description": "Description 2",
+    "category": "skincare",
+    "image": "product-19.jpg",
+    "latest": ""
+  },
+  {
+    "id": 3,
+    "name": "Moisturizing Hair Serum",
+    "price": 349.99,
+    "description": "Description 3",
+    "category": "haircare",
+    "image": "product-3.jpg",
+    "latest": ""
+  },
+  {
+    "id": 4,
+    "name": "Repairing Hair Mask",
+    "price": 249.99,
+    "description": "Description 4",
+    "category": "haircare",
+    "image": "product-10.jpg",
+    "latest": "yes"
+  },
+  {
+    "id": 5,
+    "name": "Natural Organic Lip Balm",
+    "price": 179.99,
+    "description": "Description 5",
+    "category": "makeup",
+    "image": "product-21.jpg",
+    "latest": "yes"
+  },
+  {
+    "id": 6,
+    "name": "Natural Organic Sunscreen",
+    "price": 299.99,
+    "description": "Description 6",
+    "category": "makeup",
+    "image": "product-6.jpg",
+    "latest": "yes"
+  },
+  {
+    "id": 7,
+    "name": "Organic Hemp Soap",
+    "price": 229.99,
+    "description": "Description 7",
+    "category": "body-care",
+    "image": "product-4.jpg",
+    "latest": ""
+  },
+  {
+    "id": 8,
+    "name": "Rosemary Vanilla Soap",
+    "price": 189.99,
+    "description": "Description 8",
+    "category": "body-care",
+    "image": "product-23.jpg",
+    "latest": ""
+  },
+  {
+    "id": 9,
+    "name": "Natural Blueberry Mint Toothpaste",
+    "price": 99.99,
+    "description": "Description 9",
+    "category": "oral-care",
+    "image": "product-24.jpg",
+    "latest": ""
+  },
+  {
+    "id": 10,
+    "name": "Activated Charcoal Toothpaste",
+    "price": 79.99,
+    "description": "Description 10",
+    "category": "oral-care",
+    "image": "product-18.jpg",
+    "latest": ""
+  },
+  {
+    "id": 11,
+    "name": "Oranburst Multivitamins",
+    "price": 189.99,
+    "description": "Description 11",
+    "category": "wellness",
+    "image": "product-7.jpg",
+    "latest": ""
+  },
+  {
+    "id": 12,
+    "name": "Strawburst Multivitamins",
+    "price": 189.99,
+    "description": "Description 12",
+    "category": "wellness",
+    "image": "product-8.jpg",
+    "latest": ""
+  },
+  {
+    "id": 13,
+    "name": "Rugged Musk Beard Oil",
+    "price": 219.99,
+    "description": "Description 13",
+    "category": "mens-grooming",
+    "image": "product-14.jpg",
+    "latest": ""
+  },
+  {
+    "id": 14,
+    "name": "BoldGrip Hand and Body Wash",
+    "price": 359.99,
+    "description": "Description 14",
+    "category": "mens-grooming",
+    "image": "product-22.jpg",
+    "latest": "no"
+  },
+  {
+    "id": 15,
+    "name": "Avocado Pure Mask",
+    "price": 129.99,
+    "description": "Description 15",
+    "category": "naturals-organics",
+    "image": "product-11.jpg",
+    "latest": "no"
+  },
+  {
+    "id": 16,
+    "name": "Spot Eraser Ampoule",
+    "price": 179.99,
+    "description": "Description 16",
+    "category": "naturals-organics",
+    "image": "product-12.jpg",
+    "latest": "no"
+  }
+]
